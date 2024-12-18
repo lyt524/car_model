@@ -1,0 +1,3 @@
+/home/plusai/car_model/build/CMakeFiles/KinematicsModelTest.dir
+/home/plusai/car_model/build/CMakeFiles/edit_cache.dir
+/home/plusai/car_model/build/CMakeFiles/rebuild_cache.dir
