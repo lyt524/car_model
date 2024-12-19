@@ -9,7 +9,7 @@ PYBIND11_MODULE(KiCarModule, m) {
         // .def(py::init<float, float>(), py::arg("TS"), py::arg("L"))
         .def(py::init<float, float, double, double, double, double, double>(),
              py::arg("TS"), py::arg("L"), py::arg("x"), py::arg("y"), py::arg("phi"),
-             py::arg("delta_f"), py::arg("vx"))
+             py::arg("delta_f"), py::arg("v"))
         .def_property_readonly("GetTs", &KiCar::GetTs)
         .def_property_readonly("GetL", &KiCar::GetL)
         .def_property_readonly("GetX", &KiCar::GetX)
