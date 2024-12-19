@@ -17,6 +17,11 @@ public:
     ~KiCar(){}
     float GetTs();
     float GetL();
+    double GetX();
+    double GetY();
+    double GetYaw();
+    double GetDeltaF();
+    double GetVx();
     void GetPosition();
     void UpdateState(double delta_f);
     void UpdateState(double delta_f, double ax);

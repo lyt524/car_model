@@ -21,13 +21,13 @@ KiCar::KiCar(float dt,
              delta_f(delta_f), 
              vx(vx){}
 
-float KiCar::GetTs(){
-    return this->TS;
-}
-
-float KiCar::GetL(){
-    return this->L;
-}
+float KiCar::GetTs() { return this->TS; }
+float KiCar::GetL() { return this->L; }
+double KiCar::GetX() { return this->x; }
+double KiCar::GetY() { return this->y; }
+double KiCar::GetYaw() { return this->yaw; }
+double KiCar::GetDeltaF() { return this->delta_f; }
+double KiCar::GetVx() { return this->vx; }
 
 void KiCar::GetPosition(){
 

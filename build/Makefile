@@ -129,12 +129,50 @@ KinematicsModelTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/build
 .PHONY : KinematicsModelTest/fast
 
+#=============================================================================
+# Target rules for targets named KiCarModule
+
+# Build rule for target.
+KiCarModule: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 KiCarModule
+.PHONY : KiCarModule
+
+# fast build rule for target.
+KiCarModule/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/build
+.PHONY : KiCarModule/fast
+
+bind.o: bind.cpp.o
+.PHONY : bind.o
+
+# target to build an object file
+bind.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind.cpp.o
+.PHONY : bind.cpp.o
+
+bind.i: bind.cpp.i
+.PHONY : bind.i
+
+# target to preprocess a source file
+bind.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind.cpp.i
+.PHONY : bind.cpp.i
+
+bind.s: bind.cpp.s
+.PHONY : bind.s
+
+# target to generate assembly for a file
+bind.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind.cpp.s
+.PHONY : bind.cpp.s
+
 kinematics_model.o: kinematics_model.cpp.o
 .PHONY : kinematics_model.o
 
 # target to build an object file
 kinematics_model.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/kinematics_model.cpp.o
 .PHONY : kinematics_model.cpp.o
 
 kinematics_model.i: kinematics_model.cpp.i
@@ -143,6 +181,7 @@ kinematics_model.i: kinematics_model.cpp.i
 # target to preprocess a source file
 kinematics_model.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/kinematics_model.cpp.i
 .PHONY : kinematics_model.cpp.i
 
 kinematics_model.s: kinematics_model.cpp.s
@@ -151,6 +190,7 @@ kinematics_model.s: kinematics_model.cpp.s
 # target to generate assembly for a file
 kinematics_model.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/kinematics_model.cpp.s
 .PHONY : kinematics_model.cpp.s
 
 test.o: test.cpp.o
@@ -185,7 +225,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... KiCarModule"
 	@echo "... KinematicsModelTest"
+	@echo "... bind.o"
+	@echo "... bind.i"
+	@echo "... bind.s"
 	@echo "... kinematics_model.o"
 	@echo "... kinematics_model.i"
 	@echo "... kinematics_model.s"
