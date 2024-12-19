@@ -20,7 +20,7 @@ int main(){
         double t = i / sampleRate;                                 // 时间 t
         double value = amplitude * sin(2 * M_PI * frequency * t);  // 计算正弦值
         // std::cout << "t = " << t << "s, Sine Value = " << value << std::endl;
-        car.UpdateState(value);
+        car.UpdateState_ForwardEuler(value);
         car.PrintState();
     }
     return 0;

@@ -8,7 +8,7 @@ PYBIND11_MODULE(KiCarModule, m) {
     py::class_<KiCar>(m, "KiCar")
         // .def(py::init<float, float>(), py::arg("TS"), py::arg("L"))
         .def(py::init<float, float, double, double, double, double, double>(),
-             py::arg("TS"), py::arg("L"), py::arg("x"), py::arg("y"), py::arg("yaw"),
+             py::arg("TS"), py::arg("L"), py::arg("x"), py::arg("y"), py::arg("phi"),
              py::arg("delta_f"), py::arg("vx"))
         .def_property_readonly("GetTs", &KiCar::GetTs)
         .def_property_readonly("GetL", &KiCar::GetL)
@@ -18,8 +18,12 @@ PYBIND11_MODULE(KiCarModule, m) {
         .def_property_readonly("GetDeltaF", &KiCar::GetDeltaF)
         .def_property_readonly("GetVx", &KiCar::GetVx)
         .def("GetPosition", &KiCar::GetPosition)
-        .def("UpdateState", (void (KiCar::*)(double)) &KiCar::UpdateState)
-        .def("UpdateState", (void (KiCar::*)(double, double)) &KiCar::UpdateState)
+        .def("UpdateState_ForwardEuler", (void (KiCar::*)(double)) &KiCar::UpdateState_ForwardEuler)
+        .def("UpdateState_ForwardEuler", (void (KiCar::*)(double, double)) &KiCar::UpdateState_ForwardEuler)
+        .def("UpdateState_BackwardEuler", (void (KiCar::*)(double)) &KiCar::UpdateState_BackwardEuler)
+        .def("UpdateState_BackwardEuler", (void (KiCar::*)(double, double)) &KiCar::UpdateState_BackwardEuler)
+        .def("UpdateState_RK4", (void (KiCar::*)(double)) &KiCar::UpdateState_RK4)
+        .def("UpdateState_RK4", (void (KiCar::*)(double, double)) &KiCar::UpdateState_RK4)
         .def("PrintState", &KiCar::PrintState);
 }
 

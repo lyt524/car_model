@@ -6,7 +6,7 @@ class Pose
 private:
     double x = NAN;
     double y = NAN;
-    double yaw = NAN;
+    double phi = NAN;
     
 public:
     Pose(/* args */);

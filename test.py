@@ -48,7 +48,7 @@ def main():
     for i in range(numSamples):
         t = i / sampleRate
         value = amplitude * math.sin(2 * math.pi * frequency * t)
-        kicar.UpdateState(value)
+        kicar.UpdateState_RK4(value)
         LogState(kicar.GetX, kicar.GetY, kicar.GetYaw, kicar.GetVx, kicar.GetDeltaF, t)
 
     ShowFigure(x_list, y_list, yaw_list, delta_f_list, t_list)

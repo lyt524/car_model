@@ -5,7 +5,7 @@ using namespace std;
 class KiCar{
 private:
     float TS, L;
-    double x, y, yaw, vx, vy, v;
+    double x, y, phi, vx, vy, v;
     double ax, ay, a, yaw_rate;
     double kappa;
     double delta_f;
@@ -13,7 +13,7 @@ private:
 
 public:
     KiCar(float TS, float L);
-    KiCar(float TS, float L, double x, double y, double yaw, double delta_f, double vx);
+    KiCar(float TS, float L, double x, double y, double phi, double delta_f, double vx);
     ~KiCar(){}
     float GetTs();
     float GetL();
@@ -23,8 +23,12 @@ public:
     double GetDeltaF();
     double GetVx();
     void GetPosition();
-    void UpdateState(double delta_f);
-    void UpdateState(double delta_f, double ax);
+    void UpdateState_ForwardEuler(double delta_f);
+    void UpdateState_ForwardEuler(double delta_f, double ax);
+    void UpdateState_BackwardEuler(double delta_f);
+    void UpdateState_BackwardEuler(double delta_f, double ax);
+    void UpdateState_RK4(double delta_f);
+    void UpdateState_RK4(double delta_f, double ax);
     void PrintState();
 };
 
