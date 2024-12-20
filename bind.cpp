@@ -1,8 +1,16 @@
 #include <pybind11/pybind11.h>
 
 #include "kinematics_model.h"
+#include "tools.h"
 
 namespace py = pybind11;
+
+PYBIND11_MODULE(Tools, m){
+    m.doc() = "some tools";
+    m.def("NormalizeAngle", &NormalizeAngle, "Normalize radians angle to (-pi, pi]");
+    // m.def("add", &add, "A function which adds two numbers");
+    // m.def("my_minus", &my_minus, "A function which minus the second number from the first one");
+}
 
 PYBIND11_MODULE(KiCarModule, m) {
     py::class_<KiCar>(m, "KiCar")

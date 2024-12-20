@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o.d"
   "CMakeFiles/KinematicsModelTest.dir/test.cpp.o"
   "CMakeFiles/KinematicsModelTest.dir/test.cpp.o.d"
+  "CMakeFiles/KinematicsModelTest.dir/tools.cpp.o"
+  "CMakeFiles/KinematicsModelTest.dir/tools.cpp.o.d"
   "KinematicsModelTest"
   "KinematicsModelTest.pdb"
 )

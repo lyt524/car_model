@@ -217,6 +217,33 @@ test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/test.cpp.s
 .PHONY : test.cpp.s
 
+tools.o: tools.cpp.o
+.PHONY : tools.o
+
+# target to build an object file
+tools.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools.cpp.o
+.PHONY : tools.cpp.o
+
+tools.i: tools.cpp.i
+.PHONY : tools.i
+
+# target to preprocess a source file
+tools.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools.cpp.i
+.PHONY : tools.cpp.i
+
+tools.s: tools.cpp.s
+.PHONY : tools.s
+
+# target to generate assembly for a file
+tools.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools.cpp.s
+.PHONY : tools.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -236,6 +263,9 @@ help:
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
+	@echo "... tools.o"
+	@echo "... tools.i"
+	@echo "... tools.s"
 .PHONY : help
 
 

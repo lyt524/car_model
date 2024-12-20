@@ -97,19 +97,35 @@ CMakeFiles/KiCarModule.dir/kinematics_model.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KiCarModule.dir/kinematics_model.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/kinematics_model.cpp -o CMakeFiles/KiCarModule.dir/kinematics_model.cpp.s
 
+CMakeFiles/KiCarModule.dir/tools.cpp.o: CMakeFiles/KiCarModule.dir/flags.make
+CMakeFiles/KiCarModule.dir/tools.cpp.o: ../tools.cpp
+CMakeFiles/KiCarModule.dir/tools.cpp.o: CMakeFiles/KiCarModule.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/KiCarModule.dir/tools.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KiCarModule.dir/tools.cpp.o -MF CMakeFiles/KiCarModule.dir/tools.cpp.o.d -o CMakeFiles/KiCarModule.dir/tools.cpp.o -c /home/plusai/car_model/tools.cpp
+
+CMakeFiles/KiCarModule.dir/tools.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KiCarModule.dir/tools.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/tools.cpp > CMakeFiles/KiCarModule.dir/tools.cpp.i
+
+CMakeFiles/KiCarModule.dir/tools.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KiCarModule.dir/tools.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/tools.cpp -o CMakeFiles/KiCarModule.dir/tools.cpp.s
+
 # Object files for target KiCarModule
 KiCarModule_OBJECTS = \
 "CMakeFiles/KiCarModule.dir/bind.cpp.o" \
-"CMakeFiles/KiCarModule.dir/kinematics_model.cpp.o"
+"CMakeFiles/KiCarModule.dir/kinematics_model.cpp.o" \
+"CMakeFiles/KiCarModule.dir/tools.cpp.o"
 
 # External object files for target KiCarModule
 KiCarModule_EXTERNAL_OBJECTS =
 
 KiCarModule.cpython-310-x86_64-linux-gnu.so: CMakeFiles/KiCarModule.dir/bind.cpp.o
 KiCarModule.cpython-310-x86_64-linux-gnu.so: CMakeFiles/KiCarModule.dir/kinematics_model.cpp.o
+KiCarModule.cpython-310-x86_64-linux-gnu.so: CMakeFiles/KiCarModule.dir/tools.cpp.o
 KiCarModule.cpython-310-x86_64-linux-gnu.so: CMakeFiles/KiCarModule.dir/build.make
 KiCarModule.cpython-310-x86_64-linux-gnu.so: CMakeFiles/KiCarModule.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared module KiCarModule.cpython-310-x86_64-linux-gnu.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared module KiCarModule.cpython-310-x86_64-linux-gnu.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/KiCarModule.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/strip /home/plusai/car_model/build/KiCarModule.cpython-310-x86_64-linux-gnu.so
 

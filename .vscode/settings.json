@@ -65,6 +65,12 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeindex": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "codecvt": "cpp",
+        "regex": "cpp",
+        "future": "cpp",
+        "ranges": "cpp",
+        "valarray": "cpp",
+        "variant": "cpp"
     }
 }

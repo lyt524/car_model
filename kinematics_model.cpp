@@ -2,8 +2,10 @@
 using namespace std;
 #include <vector>
 #include <cmath>
-#include "kinematics_model.h"
 #include <tuple>
+#include "kinematics_model.h"
+#include "tools.h"
+
 
 KiCar::~KiCar() = default;
 KiCar::KiCar(float dt, float l): TS(dt), L(l){}
@@ -34,21 +36,22 @@ void KiCar::GetPosition(){
 }
 
 void KiCar::PrintState(){
-    std::cout << "x = "   << this->x   << endl;
-    std::cout << "y = "   << this->y   << endl;
-    std::cout << "phi = " << this->phi << endl;
-    std::cout << "v = "  << this->v  << endl;
-    std::cout << "---------------" << endl;
+    std::cout << "x = "   << this->x   << std::endl;
+    std::cout << "y = "   << this->y   << std::endl;
+    std::cout << "phi = " << this->phi << std::endl;
+    std::cout << "v = "  << this->v  << std::endl;
+    std::cout << "---------------" << std::endl;
 
     // std::cout << "x = "  << this->x << 
     //  "              y = "<< this->y <<
-    //  "              delta_f = "<< this->delta_f << endl;
+    //  "              delta_f = "<< this->delta_f << std::endl;
 }
 
 void KiCar::UpdateState_ForwardEuler(double delta_f){
     this->x += this->v * cos(this->phi) * this->TS;
     this->y += this->v * sin(this->phi) * this->TS;
     this->phi += this->v * tan(this->delta_f)  * this->TS / this->L;
+    NormalizeAngle(this->phi);
 
     this->delta_f = delta_f;
 }
@@ -58,6 +61,7 @@ void KiCar::UpdateState_ForwardEuler(double delta_f, double a){
     this->x += this->v * cos(this->phi) * this->TS;
     this->y += this->v * sin(this->phi) * this->TS;
     this->phi += this->v * tan(this->delta_f) * this->TS / this->L;
+    NormalizeAngle(this->phi);
 
     this->a = a;
     this->v += this->a * this->TS;
@@ -68,6 +72,7 @@ void KiCar::UpdateState_ForwardEuler(double delta_f, double a){
 
 void KiCar::UpdateState_BackwardEuler(double delta_f){
     this->phi += this->v * tan(this->delta_f) * this->TS / this->L;
+    NormalizeAngle(this->phi);
     this->x += this->v * cos(this->phi) * this->TS;
     this->y += this->v * sin(this->phi) * this->TS;
 
@@ -79,6 +84,7 @@ void KiCar::UpdateState_BackwardEuler(double delta_f, double a){
     this->v += this->a * this->TS;
 
     this->phi += this->v * tan(this->delta_f) * this->TS / this->L;
+    NormalizeAngle(this->phi);
     this->x += this->v * cos(this->phi) * this->TS;
     this->y += this->v * sin(this->phi) * this->TS;
 
@@ -130,6 +136,7 @@ void KiCar::UpdateState_RK4(double delta_f){
     this->x += (this->TS / 6) * (K1_x + 2 * K2_x + 2 * K3_x + K4_x);
     this->y += (this->TS / 6) * (K1_y + 2 * K2_y + 2 * K3_y + K4_y);
     this->phi += (this->TS / 6) * (K1_phi + 2 * K2_phi + 2 * K3_phi + K4_phi);
+    NormalizeAngle(this->phi);
 
     this->delta_f = delta_f;
 }
@@ -188,6 +195,7 @@ void KiCar::UpdateState_RK4(double delta_f, double a){
     this->x += (this->TS / 6) * (K1_x + 2 * K2_x + 2 * K3_x + K4_x);
     this->y += (this->TS / 6) * (K1_y + 2 * K2_y + 2 * K3_y + K4_y);
     this->phi += (this->TS / 6) * (K1_phi + 2 * K2_phi + 2 * K3_phi + K4_phi);
+    NormalizeAngle(this->phi);
     this->v += (this->TS / 6) * (K1_v + 2 * K2_v + 2 * K3_v + K4_v);
 
     this->delta_f = delta_f;

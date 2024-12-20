@@ -16,10 +16,10 @@ set(PYTHON_INCLUDE_DIRECTORY "/usr/include/python3.10")
 # include_directories(${CMAKE_SOURCE_DIR})
 
 # 创建可执行文件（test.cpp）
-add_executable(KinematicsModelTest test.cpp kinematics_model.cpp)
+add_executable(KinematicsModelTest test.cpp kinematics_model.cpp tools.cpp)
 
 add_subdirectory(extern/pybind11)
-pybind11_add_module(KiCarModule bind.cpp kinematics_model.cpp)
+pybind11_add_module(KiCarModule bind.cpp kinematics_model.cpp tools.cpp)
 
 # 如果你使用的是外部库（例如，链接到其他库），可以在这里添加链接库
 # target_link_libraries(KinematicsModelTest <库名>)

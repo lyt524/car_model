@@ -14,5 +14,3 @@ public:
     Pose(/* args */);
     ~Pose();
 };
-
-
