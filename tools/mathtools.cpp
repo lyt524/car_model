@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include "tools.h"
-
+#include "mathtools.h"
 
 
 // Normalize radians angle to (-pi, pi]

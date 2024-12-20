@@ -2,8 +2,7 @@
 using namespace std;
 #include <vector>
 #include <cmath>
-#include "kinematics_model.h"
-#include "tools.h"
+#include "models/kinematics_model.h"
 
 double amplitude = 1.0;       // 幅度
 double frequency = 0.05;       // 频率（Hz，1Hz = 1次/秒）

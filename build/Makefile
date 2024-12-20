@@ -142,56 +142,93 @@ KiCarModule/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/build
 .PHONY : KiCarModule/fast
 
-bind.o: bind.cpp.o
-.PHONY : bind.o
+#=============================================================================
+# Target rules for targets named HelloTest
+
+# Build rule for target.
+HelloTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HelloTest
+.PHONY : HelloTest
+
+# fast build rule for target.
+HelloTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/build
+.PHONY : HelloTest/fast
+
+bind/bind.o: bind/bind.cpp.o
+.PHONY : bind/bind.o
 
 # target to build an object file
-bind.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind.cpp.o
-.PHONY : bind.cpp.o
+bind/bind.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind/bind.cpp.o
+.PHONY : bind/bind.cpp.o
 
-bind.i: bind.cpp.i
-.PHONY : bind.i
+bind/bind.i: bind/bind.cpp.i
+.PHONY : bind/bind.i
 
 # target to preprocess a source file
-bind.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind.cpp.i
-.PHONY : bind.cpp.i
+bind/bind.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind/bind.cpp.i
+.PHONY : bind/bind.cpp.i
 
-bind.s: bind.cpp.s
-.PHONY : bind.s
+bind/bind.s: bind/bind.cpp.s
+.PHONY : bind/bind.s
 
 # target to generate assembly for a file
-bind.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind.cpp.s
-.PHONY : bind.cpp.s
+bind/bind.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/bind/bind.cpp.s
+.PHONY : bind/bind.cpp.s
 
-kinematics_model.o: kinematics_model.cpp.o
-.PHONY : kinematics_model.o
+bind/bind_hello.o: bind/bind_hello.cpp.o
+.PHONY : bind/bind_hello.o
 
 # target to build an object file
-kinematics_model.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/kinematics_model.cpp.o
-.PHONY : kinematics_model.cpp.o
+bind/bind_hello.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/bind/bind_hello.cpp.o
+.PHONY : bind/bind_hello.cpp.o
 
-kinematics_model.i: kinematics_model.cpp.i
-.PHONY : kinematics_model.i
+bind/bind_hello.i: bind/bind_hello.cpp.i
+.PHONY : bind/bind_hello.i
 
 # target to preprocess a source file
-kinematics_model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/kinematics_model.cpp.i
-.PHONY : kinematics_model.cpp.i
+bind/bind_hello.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/bind/bind_hello.cpp.i
+.PHONY : bind/bind_hello.cpp.i
 
-kinematics_model.s: kinematics_model.cpp.s
-.PHONY : kinematics_model.s
+bind/bind_hello.s: bind/bind_hello.cpp.s
+.PHONY : bind/bind_hello.s
 
 # target to generate assembly for a file
-kinematics_model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/kinematics_model.cpp.s
-.PHONY : kinematics_model.cpp.s
+bind/bind_hello.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/bind/bind_hello.cpp.s
+.PHONY : bind/bind_hello.cpp.s
+
+models/kinematics_model.o: models/kinematics_model.cpp.o
+.PHONY : models/kinematics_model.o
+
+# target to build an object file
+models/kinematics_model.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/models/kinematics_model.cpp.o
+.PHONY : models/kinematics_model.cpp.o
+
+models/kinematics_model.i: models/kinematics_model.cpp.i
+.PHONY : models/kinematics_model.i
+
+# target to preprocess a source file
+models/kinematics_model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/models/kinematics_model.cpp.i
+.PHONY : models/kinematics_model.cpp.i
+
+models/kinematics_model.s: models/kinematics_model.cpp.s
+.PHONY : models/kinematics_model.s
+
+# target to generate assembly for a file
+models/kinematics_model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/models/kinematics_model.cpp.s
+.PHONY : models/kinematics_model.cpp.s
 
 test.o: test.cpp.o
 .PHONY : test.o
@@ -217,32 +254,56 @@ test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/test.cpp.s
 .PHONY : test.cpp.s
 
-tools.o: tools.cpp.o
-.PHONY : tools.o
+tools/hellotest.o: tools/hellotest.cpp.o
+.PHONY : tools/hellotest.o
 
 # target to build an object file
-tools.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools.cpp.o
-.PHONY : tools.cpp.o
+tools/hellotest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/tools/hellotest.cpp.o
+.PHONY : tools/hellotest.cpp.o
 
-tools.i: tools.cpp.i
-.PHONY : tools.i
+tools/hellotest.i: tools/hellotest.cpp.i
+.PHONY : tools/hellotest.i
 
 # target to preprocess a source file
-tools.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools.cpp.i
-.PHONY : tools.cpp.i
+tools/hellotest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/tools/hellotest.cpp.i
+.PHONY : tools/hellotest.cpp.i
 
-tools.s: tools.cpp.s
-.PHONY : tools.s
+tools/hellotest.s: tools/hellotest.cpp.s
+.PHONY : tools/hellotest.s
 
 # target to generate assembly for a file
-tools.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools.cpp.s
-.PHONY : tools.cpp.s
+tools/hellotest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/tools/hellotest.cpp.s
+.PHONY : tools/hellotest.cpp.s
+
+tools/mathtools.o: tools/mathtools.cpp.o
+.PHONY : tools/mathtools.o
+
+# target to build an object file
+tools/mathtools.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools/mathtools.cpp.o
+.PHONY : tools/mathtools.cpp.o
+
+tools/mathtools.i: tools/mathtools.cpp.i
+.PHONY : tools/mathtools.i
+
+# target to preprocess a source file
+tools/mathtools.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools/mathtools.cpp.i
+.PHONY : tools/mathtools.cpp.i
+
+tools/mathtools.s: tools/mathtools.cpp.s
+.PHONY : tools/mathtools.s
+
+# target to generate assembly for a file
+tools/mathtools.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools/mathtools.cpp.s
+.PHONY : tools/mathtools.cpp.s
 
 # Help Target
 help:
@@ -252,20 +313,27 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... HelloTest"
 	@echo "... KiCarModule"
 	@echo "... KinematicsModelTest"
-	@echo "... bind.o"
-	@echo "... bind.i"
-	@echo "... bind.s"
-	@echo "... kinematics_model.o"
-	@echo "... kinematics_model.i"
-	@echo "... kinematics_model.s"
+	@echo "... bind/bind.o"
+	@echo "... bind/bind.i"
+	@echo "... bind/bind.s"
+	@echo "... bind/bind_hello.o"
+	@echo "... bind/bind_hello.i"
+	@echo "... bind/bind_hello.s"
+	@echo "... models/kinematics_model.o"
+	@echo "... models/kinematics_model.i"
+	@echo "... models/kinematics_model.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
-	@echo "... tools.o"
-	@echo "... tools.i"
-	@echo "... tools.s"
+	@echo "... tools/hellotest.o"
+	@echo "... tools/hellotest.i"
+	@echo "... tools/hellotest.s"
+	@echo "... tools/mathtools.o"
+	@echo "... tools/mathtools.i"
+	@echo "... tools/mathtools.s"
 .PHONY : help
 
 

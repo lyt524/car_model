@@ -1,5 +1,6 @@
-CMakeFiles/KiCarModule.dir/tools.cpp.o: /home/plusai/car_model/tools.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+CMakeFiles/KiCarModule.dir/tools/mathtools.cpp.o: \
+ /home/plusai/car_model/tools/mathtools.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -166,4 +167,5 @@ CMakeFiles/KiCarModule.dir/tools.cpp.o: /home/plusai/car_model/tools.cpp \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc /home/plusai/car_model/tools.h
+ /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /home/plusai/car_model/tools/mathtools.h

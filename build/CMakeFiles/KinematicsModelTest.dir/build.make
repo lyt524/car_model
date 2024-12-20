@@ -83,46 +83,46 @@ CMakeFiles/KinematicsModelTest.dir/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KinematicsModelTest.dir/test.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/test.cpp -o CMakeFiles/KinematicsModelTest.dir/test.cpp.s
 
-CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o: CMakeFiles/KinematicsModelTest.dir/flags.make
-CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o: ../kinematics_model.cpp
-CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o: CMakeFiles/KinematicsModelTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o -MF CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o.d -o CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o -c /home/plusai/car_model/kinematics_model.cpp
+CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o: CMakeFiles/KinematicsModelTest.dir/flags.make
+CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o: ../models/kinematics_model.cpp
+CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o: CMakeFiles/KinematicsModelTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o -MF CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o.d -o CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o -c /home/plusai/car_model/models/kinematics_model.cpp
 
-CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/kinematics_model.cpp > CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.i
+CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/models/kinematics_model.cpp > CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.i
 
-CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/kinematics_model.cpp -o CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.s
+CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/models/kinematics_model.cpp -o CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.s
 
-CMakeFiles/KinematicsModelTest.dir/tools.cpp.o: CMakeFiles/KinematicsModelTest.dir/flags.make
-CMakeFiles/KinematicsModelTest.dir/tools.cpp.o: ../tools.cpp
-CMakeFiles/KinematicsModelTest.dir/tools.cpp.o: CMakeFiles/KinematicsModelTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/KinematicsModelTest.dir/tools.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KinematicsModelTest.dir/tools.cpp.o -MF CMakeFiles/KinematicsModelTest.dir/tools.cpp.o.d -o CMakeFiles/KinematicsModelTest.dir/tools.cpp.o -c /home/plusai/car_model/tools.cpp
+CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o: CMakeFiles/KinematicsModelTest.dir/flags.make
+CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o: ../tools/mathtools.cpp
+CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o: CMakeFiles/KinematicsModelTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o -MF CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o.d -o CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o -c /home/plusai/car_model/tools/mathtools.cpp
 
-CMakeFiles/KinematicsModelTest.dir/tools.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KinematicsModelTest.dir/tools.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/tools.cpp > CMakeFiles/KinematicsModelTest.dir/tools.cpp.i
+CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/tools/mathtools.cpp > CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.i
 
-CMakeFiles/KinematicsModelTest.dir/tools.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KinematicsModelTest.dir/tools.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/tools.cpp -o CMakeFiles/KinematicsModelTest.dir/tools.cpp.s
+CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/tools/mathtools.cpp -o CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.s
 
 # Object files for target KinematicsModelTest
 KinematicsModelTest_OBJECTS = \
 "CMakeFiles/KinematicsModelTest.dir/test.cpp.o" \
-"CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o" \
-"CMakeFiles/KinematicsModelTest.dir/tools.cpp.o"
+"CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o" \
+"CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o"
 
 # External object files for target KinematicsModelTest
 KinematicsModelTest_EXTERNAL_OBJECTS =
 
 KinematicsModelTest: CMakeFiles/KinematicsModelTest.dir/test.cpp.o
-KinematicsModelTest: CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o
-KinematicsModelTest: CMakeFiles/KinematicsModelTest.dir/tools.cpp.o
+KinematicsModelTest: CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o
+KinematicsModelTest: CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o
 KinematicsModelTest: CMakeFiles/KinematicsModelTest.dir/build.make
 KinematicsModelTest: CMakeFiles/KinematicsModelTest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable KinematicsModelTest"

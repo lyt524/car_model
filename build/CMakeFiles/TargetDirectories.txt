@@ -1,5 +1,6 @@
 /home/plusai/car_model/build/CMakeFiles/KinematicsModelTest.dir
 /home/plusai/car_model/build/CMakeFiles/KiCarModule.dir
+/home/plusai/car_model/build/CMakeFiles/HelloTest.dir
 /home/plusai/car_model/build/CMakeFiles/edit_cache.dir
 /home/plusai/car_model/build/CMakeFiles/rebuild_cache.dir
 /home/plusai/car_model/build/extern/pybind11/CMakeFiles/edit_cache.dir

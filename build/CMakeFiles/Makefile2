@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/plusai/car_model/build
 # The main recursive "all" target.
 all: CMakeFiles/KinematicsModelTest.dir/all
 all: CMakeFiles/KiCarModule.dir/all
+all: CMakeFiles/HelloTest.dir/all
 all: extern/pybind11/all
 .PHONY : all
 
@@ -75,6 +76,7 @@ preinstall: extern/pybind11/preinstall
 # The main recursive "clean" target.
 clean: CMakeFiles/KinematicsModelTest.dir/clean
 clean: CMakeFiles/KiCarModule.dir/clean
+clean: CMakeFiles/HelloTest.dir/clean
 clean: extern/pybind11/clean
 .PHONY : clean
 
@@ -100,7 +102,7 @@ extern/pybind11/clean:
 CMakeFiles/KinematicsModelTest.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=5,6,7,8 "Built target KinematicsModelTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=8,9,10,11 "Built target KinematicsModelTest"
 .PHONY : CMakeFiles/KinematicsModelTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -126,7 +128,7 @@ CMakeFiles/KinematicsModelTest.dir/clean:
 CMakeFiles/KiCarModule.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=1,2,3,4 "Built target KiCarModule"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=4,5,6,7 "Built target KiCarModule"
 .PHONY : CMakeFiles/KiCarModule.dir/all
 
 # Build rule for subdir invocation for target.
@@ -144,6 +146,32 @@ KiCarModule: CMakeFiles/KiCarModule.dir/rule
 CMakeFiles/KiCarModule.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/clean
 .PHONY : CMakeFiles/KiCarModule.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/HelloTest.dir
+
+# All Build rule for target.
+CMakeFiles/HelloTest.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=1,2,3 "Built target HelloTest"
+.PHONY : CMakeFiles/HelloTest.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/HelloTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/plusai/car_model/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/HelloTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/plusai/car_model/build/CMakeFiles 0
+.PHONY : CMakeFiles/HelloTest.dir/rule
+
+# Convenience name for target.
+HelloTest: CMakeFiles/HelloTest.dir/rule
+.PHONY : HelloTest
+
+# clean rule for target.
+CMakeFiles/HelloTest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloTest.dir/build.make CMakeFiles/HelloTest.dir/clean
+.PHONY : CMakeFiles/HelloTest.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

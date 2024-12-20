@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o"
-  "CMakeFiles/KinematicsModelTest.dir/kinematics_model.cpp.o.d"
+  "CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o"
+  "CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o.d"
   "CMakeFiles/KinematicsModelTest.dir/test.cpp.o"
   "CMakeFiles/KinematicsModelTest.dir/test.cpp.o.d"
-  "CMakeFiles/KinematicsModelTest.dir/tools.cpp.o"
-  "CMakeFiles/KinematicsModelTest.dir/tools.cpp.o.d"
+  "CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o"
+  "CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o.d"
   "KinematicsModelTest"
   "KinematicsModelTest.pdb"
 )

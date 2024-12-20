@@ -1,6 +1,8 @@
 from build import KiCarModule
+from build import HelloTest
+
 import math
-# import numpy as np
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -84,6 +86,10 @@ def ShowFigure(x_list, y_list, yaw_list, vx_list, delta_f_list, t_list):
     # Display all the plots
     plt.show()
 
+
+def main_test_module_Tools():
+    HelloTest.PrintHello()
+
 def main():
     kicar01 = KiCarModule.KiCar(0.05, 2.8, 0.0, 0.0, 0, 0, 2)
     for i in range(numSamples):
@@ -109,4 +115,5 @@ def main():
 
 
 if __name__ == "__main__":
+    # main_test_module_Tools()
     main()

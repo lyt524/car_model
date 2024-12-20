@@ -138,4 +138,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/KinematicsModelTest.dir/DependInfo.cmake"
   "CMakeFiles/KiCarModule.dir/DependInfo.cmake"
+  "CMakeFiles/HelloTest.dir/DependInfo.cmake"
   )
