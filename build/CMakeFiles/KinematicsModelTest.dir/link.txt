@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/KinematicsModelTest.dir/test.cpp.o CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o -o KinematicsModelTest 

@@ -17,15 +17,15 @@ sampleRate = 20
 duration = 90
 numSamples = duration * sampleRate
 
-def LogState(x, y, yaw, vx, delta_f, t, intdex):
-    if intdex == "01":
+def LogState(x, y, yaw, vx, delta_f, t, index):
+    if index == "01":
         x_list_01.append(x)
         y_list_01.append(y)
         phi_list_01.append(yaw)
         vx_list_01.append(vx)
         delta_f_list_01.append(delta_f)
         t_list_01.append(t)
-    elif intdex == "02":
+    elif index == "02":
         x_list_02.append(x)
         y_list_02.append(y)
         phi_list_02.append(yaw)
@@ -87,7 +87,7 @@ def ShowFigure(x_list, y_list, yaw_list, vx_list, delta_f_list, t_list):
     plt.show()
 
 
-def main_test_module_Tools():
+def main_test_module_HelloTest():
     HelloTest.PrintHello()
 
 def main():
@@ -115,5 +115,5 @@ def main():
 
 
 if __name__ == "__main__":
-    # main_test_module_Tools()
+    # main_test_module_HelloTest()
     main()

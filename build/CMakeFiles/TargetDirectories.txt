@@ -1,4 +1,4 @@
-/home/plusai/car_model/build/CMakeFiles/KinematicsModelTest.dir
+/home/plusai/car_model/build/CMakeFiles/CppTest.dir
 /home/plusai/car_model/build/CMakeFiles/KiCarModule.dir
 /home/plusai/car_model/build/CMakeFiles/HelloTest.dir
 /home/plusai/car_model/build/CMakeFiles/edit_cache.dir

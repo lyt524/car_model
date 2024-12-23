@@ -117,17 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named KinematicsModelTest
+# Target rules for targets named CppTest
 
 # Build rule for target.
-KinematicsModelTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 KinematicsModelTest
-.PHONY : KinematicsModelTest
+CppTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CppTest
+.PHONY : CppTest
 
 # fast build rule for target.
-KinematicsModelTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/build
-.PHONY : KinematicsModelTest/fast
+CppTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/build
+.PHONY : CppTest/fast
 
 #=============================================================================
 # Target rules for targets named KiCarModule
@@ -208,7 +208,7 @@ models/kinematics_model.o: models/kinematics_model.cpp.o
 
 # target to build an object file
 models/kinematics_model.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/models/kinematics_model.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/models/kinematics_model.cpp.o
 .PHONY : models/kinematics_model.cpp.o
 
@@ -217,7 +217,7 @@ models/kinematics_model.i: models/kinematics_model.cpp.i
 
 # target to preprocess a source file
 models/kinematics_model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/models/kinematics_model.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/models/kinematics_model.cpp.i
 .PHONY : models/kinematics_model.cpp.i
 
@@ -226,16 +226,40 @@ models/kinematics_model.s: models/kinematics_model.cpp.s
 
 # target to generate assembly for a file
 models/kinematics_model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/models/kinematics_model.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/models/kinematics_model.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/models/kinematics_model.cpp.s
 .PHONY : models/kinematics_model.cpp.s
+
+referencepath/reference_path.o: referencepath/reference_path.cpp.o
+.PHONY : referencepath/reference_path.o
+
+# target to build an object file
+referencepath/reference_path.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/referencepath/reference_path.cpp.o
+.PHONY : referencepath/reference_path.cpp.o
+
+referencepath/reference_path.i: referencepath/reference_path.cpp.i
+.PHONY : referencepath/reference_path.i
+
+# target to preprocess a source file
+referencepath/reference_path.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/referencepath/reference_path.cpp.i
+.PHONY : referencepath/reference_path.cpp.i
+
+referencepath/reference_path.s: referencepath/reference_path.cpp.s
+.PHONY : referencepath/reference_path.s
+
+# target to generate assembly for a file
+referencepath/reference_path.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/referencepath/reference_path.cpp.s
+.PHONY : referencepath/reference_path.cpp.s
 
 test.o: test.cpp.o
 .PHONY : test.o
 
 # target to build an object file
 test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/test.cpp.o
 .PHONY : test.cpp.o
 
 test.i: test.cpp.i
@@ -243,7 +267,7 @@ test.i: test.cpp.i
 
 # target to preprocess a source file
 test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/test.cpp.i
 .PHONY : test.cpp.i
 
 test.s: test.cpp.s
@@ -251,7 +275,7 @@ test.s: test.cpp.s
 
 # target to generate assembly for a file
 test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/test.cpp.s
 .PHONY : test.cpp.s
 
 tools/hellotest.o: tools/hellotest.cpp.o
@@ -283,7 +307,7 @@ tools/mathtools.o: tools/mathtools.cpp.o
 
 # target to build an object file
 tools/mathtools.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/tools/mathtools.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools/mathtools.cpp.o
 .PHONY : tools/mathtools.cpp.o
 
@@ -292,7 +316,7 @@ tools/mathtools.i: tools/mathtools.cpp.i
 
 # target to preprocess a source file
 tools/mathtools.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/tools/mathtools.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools/mathtools.cpp.i
 .PHONY : tools/mathtools.cpp.i
 
@@ -301,7 +325,7 @@ tools/mathtools.s: tools/mathtools.cpp.s
 
 # target to generate assembly for a file
 tools/mathtools.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/KinematicsModelTest.dir/build.make CMakeFiles/KinematicsModelTest.dir/tools/mathtools.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppTest.dir/build.make CMakeFiles/CppTest.dir/tools/mathtools.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KiCarModule.dir/build.make CMakeFiles/KiCarModule.dir/tools/mathtools.cpp.s
 .PHONY : tools/mathtools.cpp.s
 
@@ -313,9 +337,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... CppTest"
 	@echo "... HelloTest"
 	@echo "... KiCarModule"
-	@echo "... KinematicsModelTest"
 	@echo "... bind/bind.o"
 	@echo "... bind/bind.i"
 	@echo "... bind/bind.s"
@@ -325,6 +349,9 @@ help:
 	@echo "... models/kinematics_model.o"
 	@echo "... models/kinematics_model.i"
 	@echo "... models/kinematics_model.s"
+	@echo "... referencepath/reference_path.o"
+	@echo "... referencepath/reference_path.i"
+	@echo "... referencepath/reference_path.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
