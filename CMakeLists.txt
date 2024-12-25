@@ -35,30 +35,5 @@ control/stanley.cpp
 tools/mathtools.cpp
 )
 
-# pybind11_add_module(KiCarModule 
-# bind/bind_kicar.cpp
-# models/kinematics_model.cpp
-# tools/mathtools.cpp
-# )
-
-# pybind11_add_module(PathModule 
-# bind/bind_path.cpp
-# referencepath/reference_path.cpp
-# tools/mathtools.cpp
-# )
-
-# pybind11_add_module(StanleyModule 
-# bind/bind_stanley.cpp
-# control/stanley.cpp
-# tools/mathtools.cpp
-# )
-
-# pybind11_add_module(HelloTest 
-# bind/bind_hello.cpp
-# tools/hellotest.cpp
-# )
-
-# pybind11_add_module(Tools bind.cpp kinematics_model.cpp tools.cpp)
-
 # 如果你使用的是外部库（例如，链接到其他库），可以在这里添加链接库
 # target_link_libraries(KinematicsModelTest <库名>)

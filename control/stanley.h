@@ -17,6 +17,8 @@ public:
     double CalHeadingError(KiCar& ki_car, RefPath& ref_path);
     double CalLateralError(KiCar& ki_car, RefPath& ref_path);
     double StanleyControl(KiCar& ki_car, RefPath& ref_path);
+    double GetLateralError();
+    double GetHeadingError();
     void WriteControlResult(std::ofstream& outFile);
 
     double stanleyK = 0.5;

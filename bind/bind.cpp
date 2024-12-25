@@ -39,22 +39,24 @@ PYBIND11_MODULE(CppModule, m) {
         .def_readonly("point_num", &RefPath::point_num)
         .def_readonly("lastNearestPointIndex", &RefPath::lastNearestPointIndex);
 
-    // 绑定 SineInfo 类
     py::class_<SineInfo>(m, "SineInfo")
         .def(py::init<double, double>(), py::arg("amp"), py::arg("freq"))
         .def_readonly("amplitude", &SineInfo::amplitude)
         .def_readonly("frequency", &SineInfo::frequency);
 
-    // 绑定 GenerateSinewavePath 函数
     m.def("GenerateSinewavePath", &GenerateSinewavePath, py::arg("path_length"), py::arg("_ref_path"), py::arg("_sine_info"));
 
-    // 绑定 Stanley 类
     py::class_<Stanley>(m, "Stanley")
-        .def(py::init<>())  // 默认构造函数
+        .def(py::init<>())
         .def("FindNearestIndex", &Stanley::FindNearestIndex, py::arg("ki_car"), py::arg("ref_path"))
         .def("CalHeadingError", &Stanley::CalHeadingError, py::arg("ki_car"), py::arg("ref_path"))
         .def("CalLateralError", &Stanley::CalLateralError, py::arg("ki_car"), py::arg("ref_path"))
         .def("StanleyControl", &Stanley::StanleyControl, py::arg("ki_car"), py::arg("ref_path"))
-        .def_readwrite("stanleyK", &Stanley::stanleyK);  // 公开stanleyK属性
+        .def_property_readonly("GetLateralError", &Stanley::GetLateralError)
+        .def_property_readonly("GetHeadingError", &Stanley::GetHeadingError)
+        .def_readwrite("stanleyK", &Stanley::stanleyK)
+        .def_readonly("deltaF", &Stanley::deltaF)
+        .def_readonly("headingError", &Stanley::headingError)
+        .def_readonly("lateralError", &Stanley::lateralError);
 }
 

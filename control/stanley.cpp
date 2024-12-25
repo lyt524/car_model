@@ -85,6 +85,15 @@ double Stanley::StanleyControl(KiCar& ki_car, RefPath& ref_path){
     return deltaF;
 }
 
+
+double Stanley::GetLateralError(){
+    return this->lateralError;
+}
+
+double Stanley::GetHeadingError(){
+    return this->headingError;
+}
+
 void Stanley::WriteControlResult(std::ofstream& outFile){
     if (outFile.is_open()) {
         outFile << this->deltaF << " "
