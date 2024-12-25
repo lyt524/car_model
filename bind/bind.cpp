@@ -1,11 +1,13 @@
 #include <pybind11/pybind11.h>
 
 #include "../models/kinematics_model.h"
+#include "../referencepath/reference_path.h"
+#include "../control/stanley.h"
 
 namespace py = pybind11;
 
 
-PYBIND11_MODULE(KiCarModule, m) {
+PYBIND11_MODULE(CppModule, m) {
     py::class_<KiCar>(m, "KiCar")
         // .def(py::init<float, float>(), py::arg("TS"), py::arg("L"))
         .def(py::init<float, float, double, double, double, double, double>(),
@@ -17,7 +19,7 @@ PYBIND11_MODULE(KiCarModule, m) {
         .def_property_readonly("GetY", &KiCar::GetY)
         .def_property_readonly("GetYaw", &KiCar::GetYaw)
         .def_property_readonly("GetDeltaF", &KiCar::GetDeltaF)
-        .def_property_readonly("GetVx", &KiCar::GetVx)
+        .def_property_readonly("GetV", &KiCar::GetV)
         .def("GetPosition", &KiCar::GetPosition)
         .def("UpdateState_ForwardEuler", (void (KiCar::*)(double)) &KiCar::UpdateState_ForwardEuler)
         .def("UpdateState_ForwardEuler", (void (KiCar::*)(double, double)) &KiCar::UpdateState_ForwardEuler)
@@ -26,5 +28,34 @@ PYBIND11_MODULE(KiCarModule, m) {
         .def("UpdateState_RK4", (void (KiCar::*)(double)) &KiCar::UpdateState_RK4)
         .def("UpdateState_RK4", (void (KiCar::*)(double, double)) &KiCar::UpdateState_RK4)
         .def("PrintState", &KiCar::PrintState);
+    
+    py::class_<RefPath>(m, "RefPath")
+        .def(py::init<int, int>(), py::arg("point_num"), py::arg("row_num"))
+        .def("GetPoint", &RefPath::GetPoint, py::arg("index"), py::arg("x"), py::arg("y"), py::arg("phi"))
+        .def("GetPointX", &RefPath::GetPointX, py::arg("index"))
+        .def("GetPointY", &RefPath::GetPointY, py::arg("index"))
+        .def("GetPointPhi", &RefPath::GetPointPhi, py::arg("index"))
+        .def("ShowPath", &RefPath::ShowPath)
+        .def_readonly("ref_path", &RefPath::ref_path)
+        .def_readonly("point_num", &RefPath::point_num)
+        .def_readonly("lastNearestPointIndex", &RefPath::lastNearestPointIndex);
+
+    // 绑定 SineInfo 类
+    py::class_<SineInfo>(m, "SineInfo")
+        .def(py::init<double, double>(), py::arg("amp"), py::arg("freq"))
+        .def_readonly("amplitude", &SineInfo::amplitude)
+        .def_readonly("frequency", &SineInfo::frequency);
+
+    // 绑定 GenerateSinewavePath 函数
+    m.def("GenerateSinewavePath", &GenerateSinewavePath, py::arg("path_length"), py::arg("_ref_path"), py::arg("_sine_info"));
+
+    // 绑定 Stanley 类
+    py::class_<Stanley>(m, "Stanley")
+        .def(py::init<>())  // 默认构造函数
+        .def("FindNearestIndex", &Stanley::FindNearestIndex, py::arg("ki_car"), py::arg("ref_path"))
+        .def("CalHeadingError", &Stanley::CalHeadingError, py::arg("ki_car"), py::arg("ref_path"))
+        .def("CalLateralError", &Stanley::CalLateralError, py::arg("ki_car"), py::arg("ref_path"))
+        .def("StanleyControl", &Stanley::StanleyControl, py::arg("ki_car"), py::arg("ref_path"))
+        .def_readwrite("stanleyK", &Stanley::stanleyK);  // 公开stanleyK属性
 }
 

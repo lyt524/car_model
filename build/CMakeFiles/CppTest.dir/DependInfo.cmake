@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/plusai/car_model/control/stanley.cpp" "CMakeFiles/CppTest.dir/control/stanley.cpp.o" "gcc" "CMakeFiles/CppTest.dir/control/stanley.cpp.o.d"
   "/home/plusai/car_model/models/kinematics_model.cpp" "CMakeFiles/CppTest.dir/models/kinematics_model.cpp.o" "gcc" "CMakeFiles/CppTest.dir/models/kinematics_model.cpp.o.d"
   "/home/plusai/car_model/referencepath/reference_path.cpp" "CMakeFiles/CppTest.dir/referencepath/reference_path.cpp.o" "gcc" "CMakeFiles/CppTest.dir/referencepath/reference_path.cpp.o.d"
   "/home/plusai/car_model/test.cpp" "CMakeFiles/CppTest.dir/test.cpp.o" "gcc" "CMakeFiles/CppTest.dir/test.cpp.o.d"

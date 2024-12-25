@@ -1,4 +1,5 @@
-CMakeFiles/CppTest.dir/test.cpp.o: /home/plusai/car_model/test.cpp \
+CMakeFiles/CppModule.dir/models/kinematics_model.cpp.o: \
+ /home/plusai/car_model/models/kinematics_model.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -170,7 +171,9 @@ CMakeFiles/CppTest.dir/test.cpp.o: /home/plusai/car_model/test.cpp \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/invoke.h \
  /home/plusai/car_model/models/kinematics_model.h \
- /home/plusai/car_model/referencepath/reference_path.h \
- /home/plusai/car_model/control/stanley.h /usr/include/c++/11/cstddef
+ /home/plusai/car_model/models/../tools/mathtools.h

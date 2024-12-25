@@ -1,5 +1,7 @@
-from build import KiCarModule
-from build import HelloTest
+# from build import KiCarModule
+# from build import HelloTest
+# from build import PathModule
+from build import CppModule
 
 import math
 import numpy as np
@@ -17,21 +19,35 @@ sampleRate = 20
 duration = 90
 numSamples = duration * sampleRate
 
-def LogState(x, y, yaw, vx, delta_f, t, index):
-    if index == "01":
-        x_list_01.append(x)
-        y_list_01.append(y)
-        phi_list_01.append(yaw)
-        vx_list_01.append(vx)
-        delta_f_list_01.append(delta_f)
-        t_list_01.append(t)
-    elif index == "02":
-        x_list_02.append(x)
-        y_list_02.append(y)
-        phi_list_02.append(yaw)
-        vx_list_02.append(vx)
-        delta_f_list_02.append(delta_f)
-        t_list_02.append(t)
+def main_test_path():
+    sine_info = CppModule.SineInfo(3.5, 0.01)
+    path = CppModule.RefPath(2000, 4)
+    CppModule.GenerateSinewavePath(100, path, sine_info)
+    path.ShowPath()
+
+def LogState(x, y, yaw, vx, delta_f, t):
+    x_list_01.append(x)
+    y_list_01.append(y)
+    phi_list_01.append(yaw)
+    vx_list_01.append(vx)
+    delta_f_list_01.append(delta_f)
+    t_list_01.append(t)
+
+# def LogState(x, y, yaw, vx, delta_f, t, index):
+#     if index == "01":
+#         x_list_01.append(x)
+#         y_list_01.append(y)
+#         phi_list_01.append(yaw)
+#         vx_list_01.append(vx)
+#         delta_f_list_01.append(delta_f)
+#         t_list_01.append(t)
+#     elif index == "02":
+#         x_list_02.append(x)
+#         y_list_02.append(y)
+#         phi_list_02.append(yaw)
+#         vx_list_02.append(vx)
+#         delta_f_list_02.append(delta_f)
+#         t_list_02.append(t)
 
 def ShowFigure_contrast(x_list_01, y_list_01, phi_list_01, vx_list_01, delta_f_list_01, t_list_01, 
                         x_list_02, y_list_02, phi_list_02, vx_list_02, delta_f_list_02, t_list_02,
@@ -72,7 +88,7 @@ def ShowFigure(x_list, y_list, yaw_list, vx_list, delta_f_list, t_list):
     axs[0, 0].set_title('Position')
 
     axs[0, 1].plot(t_list, vx_list)
-    axs[0, 1].set_title('Vx')
+    axs[0, 1].set_title('V')
 
     axs[1, 0].plot(t_list, yaw_list)
     axs[1, 0].set_title('Yaw')
@@ -87,25 +103,25 @@ def ShowFigure(x_list, y_list, yaw_list, vx_list, delta_f_list, t_list):
     plt.show()
 
 
-def main_test_module_HelloTest():
-    HelloTest.PrintHello()
+# def main_test_module_HelloTest():
+#     HelloTest.PrintHello()
 
 def main():
-    kicar01 = KiCarModule.KiCar(0.05, 2.8, 0.0, 0.0, 0, 0, 2)
+    kicar01 = CppModule.KiCar(0.05, 2.8, 0.0, 0.0, 0, 0, 2)
     for i in range(numSamples):
         t = i / sampleRate
         value = amplitude * math.sin(2 * math.pi * frequency * t)
         value = 0.1
         kicar01.UpdateState_RK4(value)
-        LogState(kicar01.GetX, kicar01.GetY, kicar01.GetYaw, kicar01.GetVx, kicar01.GetDeltaF, t, "02")
+        LogState(kicar01.GetX, kicar01.GetY, kicar01.GetYaw, kicar01.GetV, kicar01.GetDeltaF, t, "02")
 
-    kicar = KiCarModule.KiCar(0.05, 2.8, 0.0, 0.0, 0, 0, 2)
+    kicar = CppModule.KiCar(0.05, 2.8, 0.0, 0.0, 0, 0, 2)
     for i in range(numSamples):
         t = i / sampleRate
         value = amplitude * math.sin(2 * math.pi * frequency * t)
         value = 0.1
         kicar.UpdateState_ForwardEuler(value)
-        LogState(kicar.GetX, kicar.GetY, kicar.GetYaw, kicar.GetVx, kicar.GetDeltaF, t, "01")
+        LogState(kicar.GetX, kicar.GetY, kicar.GetYaw, kicar.GetV, kicar.GetDeltaF, t, "01")
 
     ShowFigure_contrast(x_list_01, y_list_01, phi_list_01, vx_list_01, delta_f_list_01, t_list_01, 
                         x_list_02, y_list_02, phi_list_02, vx_list_02, delta_f_list_02, t_list_02,
@@ -113,7 +129,29 @@ def main():
     
     # ShowFigure(x_list_01, y_list_01, phi_list_01, vx_list_01, delta_f_list_01, t_list_01)
 
+def main_stanley():
+    car = CppModule.KiCar(0.05, 3.0, 0.0, 0.0, 0, 0, 2)
+    sine_info = CppModule.SineInfo(3.5, 0.01)
+    path = CppModule.RefPath(2000, 4)
+    CppModule.GenerateSinewavePath(100, path, sine_info)
+    path.ShowPath()
+    stanley_controller = CppModule.Stanley()
+
+    MAX_SIM_TIME = 60.0
+    total_t = 0.0
+
+    while(MAX_SIM_TIME > total_t and path.point_num - 10 > path.lastNearestPointIndex):
+        total_t += car.GetTs
+        delta_f = stanley_controller.StanleyControl(car, path)
+        car.UpdateState_RK4(delta_f, 0.0)
+        LogState(car.GetX, car.GetY, car.GetYaw, car.GetV, car.GetDeltaF, total_t)
+        car.PrintState()
+
+    ShowFigure(x_list_01, y_list_01, phi_list_01, vx_list_01, delta_f_list_01, t_list_01)
+
 
 if __name__ == "__main__":
     # main_test_module_HelloTest()
-    main()
+    # main_test_path()
+    # main()
+    main_stanley()

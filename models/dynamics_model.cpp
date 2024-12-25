@@ -16,6 +16,7 @@ void DyCar::UpdateState_ForwardEuler(double delta_f, double a){
         double d_vy = (this->CF + this->CR) / (this->MASS * this->vx) * this->d_vy +
                       ((this->LF * this->CF - this->LR * this->CR) / (this->MASS * this->vx) - this->vx) * this->d_phi +
                       (-this->CF / this->MASS)*delta_f;
+        
 
         double dx = this->v * cos(phi);
         double dy = this->v * sin(phi);

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/CppTest.dir/control/stanley.cpp.o"
+  "CMakeFiles/CppTest.dir/control/stanley.cpp.o.d"
   "CMakeFiles/CppTest.dir/models/kinematics_model.cpp.o"
   "CMakeFiles/CppTest.dir/models/kinematics_model.cpp.o.d"
   "CMakeFiles/CppTest.dir/referencepath/reference_path.cpp.o"

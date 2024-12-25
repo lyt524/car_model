@@ -12,7 +12,6 @@ private:
     double kappa;
     double delta_f;
     
-
 public:
     KiCar(float TS, float L);
     KiCar(float TS, float L, double x, double y, double phi, double delta_f, double v);
@@ -23,7 +22,7 @@ public:
     double GetY();
     double GetYaw();
     double GetDeltaF();
-    double GetVx();
+    double GetV();
     void GetPosition();
     void UpdateState_ForwardEuler(double delta_f);
     void UpdateState_ForwardEuler(double delta_f, double a);

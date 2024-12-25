@@ -7,35 +7,56 @@ project(KinematicsModelTest)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-
 set(PYTHON_EXECUTABLE "/usr/bin/python3")
 set(PYTHON_INCLUDE_DIRECTORY "/usr/include/python3.10")
-
 
 # # 添加头文件路径（可选，根据需要添加）
 # include_directories(${CMAKE_SOURCE_DIR})
 
-# 创建可执行文件（test.cpp）
+# 添加 Eigen 的路径
+include_directories(/usr/include/eigen3)
+
 add_executable(CppTest 
 test.cpp
 models/kinematics_model.cpp
 tools/mathtools.cpp
 referencepath/reference_path.cpp
+control/stanley.cpp
 )
 
 add_subdirectory(extern/pybind11)
 
-pybind11_add_module(KiCarModule 
+
+pybind11_add_module(CppModule
 bind/bind.cpp
 models/kinematics_model.cpp
+referencepath/reference_path.cpp
+control/stanley.cpp
 tools/mathtools.cpp
 )
 
-pybind11_add_module(HelloTest 
-bind/bind_hello.cpp
-tools/hellotest.cpp
-)
+# pybind11_add_module(KiCarModule 
+# bind/bind_kicar.cpp
+# models/kinematics_model.cpp
+# tools/mathtools.cpp
+# )
 
+# pybind11_add_module(PathModule 
+# bind/bind_path.cpp
+# referencepath/reference_path.cpp
+# tools/mathtools.cpp
+# )
+
+# pybind11_add_module(StanleyModule 
+# bind/bind_stanley.cpp
+# control/stanley.cpp
+# tools/mathtools.cpp
+# )
+
+# pybind11_add_module(HelloTest 
+# bind/bind_hello.cpp
+# tools/hellotest.cpp
+# )
 
 # pybind11_add_module(Tools bind.cpp kinematics_model.cpp tools.cpp)
 

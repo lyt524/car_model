@@ -30,7 +30,7 @@ double KiCar::GetX() { return this->x; }
 double KiCar::GetY() { return this->y; }
 double KiCar::GetYaw() { return this->phi; }
 double KiCar::GetDeltaF() { return this->delta_f; }
-double KiCar::GetVx() { return this->v; }
+double KiCar::GetV() { return this->v; }
 
 void KiCar::GetPosition(){
 }
