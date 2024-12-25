@@ -8,4 +8,3 @@
 // Normalize radians angle to (-pi, pi]
 void NormalizeAngle(double& angle);
 
-

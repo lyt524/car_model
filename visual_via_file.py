@@ -1,16 +1,18 @@
+import numpy as np
 import matplotlib.pyplot as plt
 
-# 示例数据
-ref_path_list_x = [0, 1, 2, 3, 4, 5]
-ref_path_list_y = [0, 1, 4, 9, 16, 25]
 
-# 绘制参考路径，虚线，蓝色，宽度为 1.0
-plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0)
+ref_path_data = np.loadtxt('data.txt')
 
-# 添加标题和标签
-plt.title("Reference Path")
-plt.xlabel("X Coordinate")
-plt.ylabel("Y Coordinate")
+x = ref_path_data[:, 0]
+y = ref_path_data[:, 1]
 
-# 显示图形
+plt.plot(x, y, marker='o', linestyle='-', color='b', label='Data points')
+
+plt.title('Plot')
+plt.xlabel('X')
+plt.ylabel('Y')
+
+plt.legend()
+
 plt.show()

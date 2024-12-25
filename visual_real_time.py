@@ -73,7 +73,7 @@ def main_stanley():
 
     plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0)
 
-    while(MAX_SIM_TIME > total_t and path.point_num - 10 > path.lastNearestPointIndex):
+    while(MAX_SIM_TIME > total_t and path.point_num - 4 > path.lastNearestPointIndex):
         total_t += car.GetTs
         delta_f = stanley_controller.StanleyControl(car, path)
         car.UpdateState_RK4(delta_f, 0.0)
@@ -87,42 +87,55 @@ def main_stanley():
         car_heading_err_list.append(stanley_controller.GetHeadingError)
         
         plt.cla()
-        plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0)
+        plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0, label="reference path")
         draw_trailer(car.GetX, car.GetY, car.GetYaw, car.GetDeltaF, plt)
         plt.plot(car_x_list, car_y_list, "-r", label="trajectory")
+
+        plt.plot(ref_path_list_x[stanley_controller.FindNearestIndex(car, path)], 
+                 ref_path_list_y[stanley_controller.FindNearestIndex(car, path)], 
+                 "go", label="target")
         plt.axis("equal")
+        plt.legend(loc='upper right')
         plt.pause(0.001)
     
     print("len(ref_path_list_x) = ", len(ref_path_list_x))
     print("len(car_t_list) = ", len(car_t_list))
+    print("total_t = ", total_t)
+    print("path.lastNearestPointIndex = ", path.lastNearestPointIndex)
 
     plt.figure(2)
     
     plt.subplot(2, 3, 1)
-    plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0)
-    plt.plot(car_x_list, car_y_list, 'r')
+    plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0, label="reference path")
+    plt.plot(car_x_list, car_y_list, 'r', label="trajectory")
     plt.title("actual tracking effect")
+    plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 2)
-    plt.plot(car_t_list, car_heading_err_list)
+    plt.plot(car_x_list, car_heading_err_list)
     plt.title("heading error")
+    plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 3)
-    plt.plot(car_t_list, car_lat_err_list)
+    plt.plot(car_x_list, car_lat_err_list)
     plt.title("lateral error")
+    plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 4)
-    plt.plot(car_t_list, car_delta_f_list)
+    plt.plot(car_x_list, car_delta_f_list)
     plt.title("delta_f")
+    plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 5)
-    plt.plot(ref_path_list_x, ref_path_list_phi, '-.b', linewidth=1.0)
-    plt.plot(car_x_list, car_phi_list, 'r')
+    plt.plot(ref_path_list_x, ref_path_list_phi, '-.b', linewidth=1.0, label="reference heading")
+    plt.plot(car_x_list, car_phi_list, 'r', label="actual heading")
     plt.title("heading contrast")
+    plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 6)
-    plt.plot(car_t_list, car_v_list)
+    plt.plot(car_x_list, car_v_list)
     plt.title("vehicle velocity")
+    plt.legend(loc='upper right')
 
     plt.show()
 
