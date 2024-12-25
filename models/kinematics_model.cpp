@@ -3,6 +3,7 @@ using namespace std;
 #include <vector>
 #include <cmath>
 #include <tuple>
+#include <fstream>
 #include "kinematics_model.h"
 #include "../tools/mathtools.h"
 
@@ -200,3 +201,19 @@ void KiCar::UpdateState_RK4(double delta_f, double a){
 
     this->delta_f = delta_f;
 }
+
+void KiCar::WriteCarState(std::ofstream& outFile){
+    if (outFile.is_open()) {
+        outFile << this->GetX() << " "
+        << this->GetY() << " "
+        << this->GetYaw() << " "
+        << this->GetV() << " "
+        << std::endl;
+        
+        std::cout << "CarState record written successfully." << std::endl;
+    } else {
+        std::cout << "Error opening the car state record file." << std::endl;
+    }
+}
+
+

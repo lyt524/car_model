@@ -2,27 +2,24 @@
 using namespace std;
 #include <vector>
 #include <cmath>
+#include <fstream>
 #include "models/kinematics_model.h"
 #include "referencepath/reference_path.h"
 #include "control/stanley.h"
 
-// double amplitude = 1.0;       // 幅度
-// double frequency = 0.05;       // 频率（Hz，1Hz = 1次/秒）
-// double sampleRate = 20;       // 采样率（每秒采样点数）
-// double duration = 90;         // 持续时间（秒）
-// int numSamples = static_cast<int>(duration * sampleRate);
-
-// KiCar car(0.05, 2.8, 0.0, 0.0, 0, 0, 2);
-
-// double total_t = 20.0;
-// size_t total_index = total_t / 0.05;
 
 int main(){
+    std::ofstream outFileRefPath("reference_path.txt");
+    std::ofstream outFileControlResult("control_result.txt");
+    std::ofstream outFileCarState("car_state.txt");
+
     SineInfo sine_info(3.5, 0.01);
     RefPath ref_path(2000, 4);
     GenerateSinewavePath(100, ref_path, sine_info);
     ref_path.ShowPath();
-    double MAX_SIM_TIME = 40.0;
+    ref_path.WritePath(outFileRefPath);
+
+    double MAX_SIM_TIME = 60.0;
     double total_t = 0.0;
 
     KiCar car(0.05, 3.0, 0.0, 0.0, 0.0, 0.0, 2.0);
@@ -31,15 +28,14 @@ int main(){
     while(MAX_SIM_TIME > total_t && ref_path.ref_path[0].size() - 10 > ref_path.lastNearestPointIndex){
         total_t += car.GetTs();
         double delta_f = stanley_controller.StanleyControl(car, ref_path);
+        stanley_controller.WriteControlResult(outFileControlResult);
         car.UpdateState_RK4(delta_f, 0.0);
+        car.WriteCarState(outFileCarState);
         car.PrintState();
     }
-    // for(int i = 0; i < numSamples; ++i){
-    //     double t = i / sampleRate;                                 // 时间 t
-    //     double value = amplitude * sin(2 * M_PI * frequency * t);  // 计算正弦值
-    //     // std::cout << "t = " << t << "s, Sine Value = " << value << std::endl;
-    //     car.UpdateState_ForwardEuler(value);
-    //     car.PrintState();
-    // }
+
+    outFileRefPath.close();
+    outFileControlResult.close();
+    outFileCarState.close();
     return 0;
 }

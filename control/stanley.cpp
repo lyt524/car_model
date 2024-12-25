@@ -3,6 +3,7 @@
 #include <cmath>
 #include <vector>
 #include <Eigen/Dense>
+#include <fstream>
 #include "stanley.h"
 #include "../models/kinematics_model.h"
 #include "../referencepath/reference_path.h"
@@ -49,11 +50,12 @@ int Stanley::FindNearestIndex(KiCar& ki_car, RefPath& ref_path){
 double Stanley::CalHeadingError(KiCar& ki_car, RefPath& ref_path){
     double phiError = ki_car.GetYaw() - ref_path.GetPointPhi(ref_path.lastNearestPointIndex);
     NormalizeAngle(phiError);
+    this->headingError = phiError;
     std::cout << "phiError = " << phiError << std::endl;
     return phiError;
 }
 
-double Stanley:: CalLateralError(KiCar& ki_car, RefPath& ref_path){
+double Stanley::CalLateralError(KiCar& ki_car, RefPath& ref_path){
     Eigen::Vector2d egoPose(ki_car.GetX() + ki_car.GetL() * cos(ki_car.GetYaw()), 
                             ki_car.GetY() + ki_car.GetL() * sin(ki_car.GetYaw()));
 
@@ -66,6 +68,7 @@ double Stanley:: CalLateralError(KiCar& ki_car, RefPath& ref_path){
                                           sin(ki_car.GetYaw() - M_PI_2));
 
     double lateralError = matchedPathMinusEgo.dot(egoYawRote90ClockWise);
+    this->lateralError = lateralError;
     std::cout << "lateralError = " << lateralError << std::endl;
     return lateralError;
 }
@@ -77,6 +80,19 @@ double Stanley::StanleyControl(KiCar& ki_car, RefPath& ref_path){
 
     double deltaF = -(alpha + phiError);
     NormalizeAngle(deltaF);
+    this->deltaF = deltaF;
     std::cout << "deltaF = " << deltaF << std::endl;
     return deltaF;
+}
+
+void Stanley::WriteControlResult(std::ofstream& outFile){
+    if (outFile.is_open()) {
+        outFile << this->deltaF << " "
+        << this->headingError << " "
+        << this->lateralError << " "
+        << std::endl;
+        std::cout << "File written successfully." << std::endl;
+    } else {
+        std::cout << "Error opening the stanley control record file." << std::endl;
+    }
 }

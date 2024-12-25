@@ -9,7 +9,6 @@ namespace py = pybind11;
 
 PYBIND11_MODULE(CppModule, m) {
     py::class_<KiCar>(m, "KiCar")
-        // .def(py::init<float, float>(), py::arg("TS"), py::arg("L"))
         .def(py::init<float, float, double, double, double, double, double>(),
              py::arg("TS"), py::arg("L"), py::arg("x"), py::arg("y"), py::arg("phi"),
              py::arg("delta_f"), py::arg("v"))

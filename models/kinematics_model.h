@@ -31,6 +31,7 @@ public:
     void UpdateState_RK4(double delta_f);
     void UpdateState_RK4(double delta_f, double a);
     void PrintState();
+    void WriteCarState(std::ofstream& outFile);
 };
 
 

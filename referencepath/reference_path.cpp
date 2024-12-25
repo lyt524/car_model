@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <fstream>
 #include "reference_path.h"
 
 RefPath::RefPath(int point_num, int row_num){
@@ -55,6 +56,20 @@ void RefPath::ShowPath(){
                 << ", y = " << ref_path[2][i]
                 << ", phi = " << ref_path[3][i] 
                 << std::endl;
+    }
+}
+
+void RefPath::WritePath(std::ofstream& outFile){
+    if (outFile.is_open()) {
+        for(int i = 0; i < this->ref_path[0].size(); i++){
+            outFile << ref_path[1][i] << " " 
+            << ref_path[2][i] << " "
+            << ref_path[3][i] << " "
+            << std::endl;
+        }
+        std::cout << "Trajectory record written successfully." << std::endl;
+    } else {
+        std::cout << "Error opening the trajectory record file." << std::endl;
     }
 }
 
