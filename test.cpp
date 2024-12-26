@@ -9,16 +9,19 @@ using namespace std;
 
 
 int main(){
+    // Files
     std::ofstream outFileRefPath("reference_path.txt");
     std::ofstream outFileControlResult("control_result.txt");
     std::ofstream outFileCarState("car_state.txt");
 
+    // Reference Path
     SineInfo sine_info(3.5, 0.01);
     RefPath ref_path(2000, 4);
     GenerateSinewavePath(100, ref_path, sine_info);
     ref_path.ShowPath();
     ref_path.WritePath(outFileRefPath);
 
+    // Simulator Time
     double MAX_SIM_TIME = 60.0;
     double total_t = 0.0;
 

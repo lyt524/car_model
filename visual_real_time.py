@@ -5,12 +5,6 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
-def main_test_path():
-    sine_info = CppModule.SineInfo(3.5, 0.01)
-    path = CppModule.RefPath(2000, 4)
-    CppModule.GenerateSinewavePath(100, path, sine_info)
-    path.ShowPath()
-
 def LogState(car_x_list, car_y_list, car_phi_list,
              car_v_list, car_delta_f_list, car_t_list,
              x, y, yaw, v, delta_f, t):
@@ -20,25 +14,6 @@ def LogState(car_x_list, car_y_list, car_phi_list,
     car_v_list.append(v)
     car_delta_f_list.append(delta_f)
     car_t_list.append(t)
-
-def ShowFigure(x_list, y_list, yaw_list, vx_list, delta_f_list, t_list, plt):
-    fig, axs = plt.subplots(2, 2, figsize=(10, 8))
-
-    # First subplot
-    axs[0, 0].plot(x_list, y_list)
-    axs[0, 0].set_title('Position')
-
-    axs[0, 1].plot(t_list, vx_list)
-    axs[0, 1].set_title('V')
-
-    axs[1, 0].plot(t_list, yaw_list)
-    axs[1, 0].set_title('Yaw')
-
-    axs[1, 1].plot(t_list, delta_f_list)
-    axs[1, 1].set_title('DeltaF')
-
-    plt.tight_layout()
-    plt.show()
 
 def main_stanley():
     ref_path_list_x = []
@@ -100,6 +75,8 @@ def main_stanley():
     
     print("len(ref_path_list_x) = ", len(ref_path_list_x))
     print("len(car_t_list) = ", len(car_t_list))
+    print("len(car_x_list) = ", len(car_x_list))
+    print("len(car_heading_err_list) = ", len(car_heading_err_list))
     print("total_t = ", total_t)
     print("path.lastNearestPointIndex = ", path.lastNearestPointIndex)
 
