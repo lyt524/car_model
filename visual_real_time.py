@@ -91,17 +91,17 @@ def main_stanley():
     plt.subplot(2, 3, 2)
     plt.plot(car_x_list, car_heading_err_list)
     plt.title("heading error")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 3)
     plt.plot(car_x_list, car_lat_err_list)
     plt.title("lateral error")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 4)
     plt.plot(car_x_list, car_delta_f_list)
     plt.title("delta_f")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 5)
     plt.plot(ref_path_list_x, ref_path_list_phi, '-.b', linewidth=1.0, label="reference heading")
@@ -112,7 +112,7 @@ def main_stanley():
     plt.subplot(2, 3, 6)
     plt.plot(car_x_list, car_v_list)
     plt.title("vehicle velocity")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.show()
 

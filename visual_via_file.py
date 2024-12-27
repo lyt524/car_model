@@ -29,17 +29,17 @@ def showResult(ref_path_data, car_state_data, control_result_data):
     plt.subplot(2, 3, 2)
     plt.plot(car_pose_x, control_value_heading_err)
     plt.title("heading error")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 3)
     plt.plot(car_pose_x, control_value_lateral_err)
     plt.title("lateral error")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 4)
     plt.plot(car_pose_x, control_value_deltaf)
     plt.title("delta_f")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.subplot(2, 3, 5)
     plt.plot(ref_path_x, ref_path_phi, '-.b', linewidth=1.0, label="reference heading")
@@ -50,11 +50,10 @@ def showResult(ref_path_data, car_state_data, control_result_data):
     plt.subplot(2, 3, 6)
     plt.plot(car_pose_x, car_pose_v)
     plt.title("vehicle velocity")
-    plt.legend(loc='upper right')
+    # plt.legend(loc='upper right')
 
     plt.show()
 
 if __name__ == "__main__":
     showResult(ref_path_data, car_state_data, control_result_data)
 
-    

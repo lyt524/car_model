@@ -54,7 +54,8 @@ void RefPath::ShowPath(){
         std::cout << "Point " << ref_path[0][i] 
                 << ": x = " << ref_path[1][i]
                 << ", y = " << ref_path[2][i]
-                << ", phi = " << ref_path[3][i] 
+                << ", phi = " << ref_path[3][i]
+                << ", kappa = " << ref_path[4][i]  
                 << std::endl;
     }
 }

@@ -21,7 +21,7 @@ int main(){
     ref_path.ShowPath();
     ref_path.WritePath(outFileRefPath);
 
-    // Simulator Time
+    // Simulation Time
     double MAX_SIM_TIME = 60.0;
     double total_t = 0.0;
 

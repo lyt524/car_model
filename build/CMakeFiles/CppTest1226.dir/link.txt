@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/CppTest1226.dir/test_1226.cpp.o CMakeFiles/CppTest1226.dir/tools/mathtools.cpp.o CMakeFiles/CppTest1226.dir/referencepath/reference_path.cpp.o -o CppTest1226 

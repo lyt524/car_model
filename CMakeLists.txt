@@ -16,6 +16,12 @@ set(PYTHON_INCLUDE_DIRECTORY "/usr/include/python3.10")
 # 添加 Eigen 的路径
 include_directories(/usr/include/eigen3)
 
+add_executable(CppTest1226 
+test_1226.cpp
+tools/mathtools.cpp
+referencepath/reference_path.cpp
+)
+
 add_executable(CppTest 
 test.cpp
 models/kinematics_model.cpp
