@@ -27,8 +27,7 @@ test.cpp
 models/kinematics_model.cpp
 tools/mathtools.cpp
 referencepath/reference_path.cpp
-control/stanley.cpp
-)
+control/stanley.cpp)
 
 add_subdirectory(extern/pybind11)
 
