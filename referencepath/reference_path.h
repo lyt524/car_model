@@ -12,11 +12,12 @@ public:
     double GetPointX(int index);
     double GetPointY(int index);
     double GetPointPhi(int index);
+    double GetPointV(int index);
     void ShowPath();
     void WritePath(std::ofstream& outFile);
 
 public:
-    std::vector<std::vector<double>> ref_path;
+    std::vector<std::vector<double>> ref_path;  // Store trajectory points
     int point_num;
     int lastNearestPointIndex = 0;
 };

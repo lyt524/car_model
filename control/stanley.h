@@ -4,9 +4,14 @@
 #include <cstddef>
 #include <cmath>
 #include <vector>
+#include <iostream>
+#include <Eigen/Dense>
+#include <fstream>
+
 #include "../models/kinematics_model.h"
 #include "../referencepath/reference_path.h"
-
+#include "../referencepath/point.h"
+#include "../tools/mathtools.h"
 
 class Stanley{
 public:

@@ -4,6 +4,7 @@
 Bicycle::Bicycle(double L, double DT){
     this->ll_ = L;
     this->dt_ = DT;
+    std::cout << "Bicycle model: " << std::endl;
     std::cout << "car ll_ = " << this->ll_ << std::endl;
     std::cout << "simulator dt_ = " << this->dt_ << std::endl;
 }

@@ -116,63 +116,6 @@ def main_stanley():
 
     plt.show()
 
-def main_stanley_buff():
-    ref_path_list_x = []
-    ref_path_list_y = []
-    ref_path_list_phi = []
-
-    ref_path_list_x_buff = []
-    ref_path_list_y_buff = []
-    ref_path_list_phi_buff = []
-
-    car_x_list = []
-    car_y_list = []
-    car_phi_list = []
-    car_v_list = []
-    car_delta_f_list = []
-    car_t_list = []
-
-    car_x_list_buff = []
-    car_y_list_buff = []
-    car_phi_list_buff = []
-    car_v_list_buff = []
-    car_delta_f_list_buff = []
-    car_t_list_buff = []
-
-    plt.figure(1)
-    car = CppModule.KiCar(0.05, 3.0, 0.0, -3.0, 0, 0, 2)
-    sine_info = CppModule.SineInfo(3.5, 0.01)
-    path = CppModule.RefPath(2000, 4)
-    CppModule.GenerateSinewavePath(100, path, sine_info)
-    
-    for path_index in range(path.point_num):
-        ref_path_list_x.append(path.GetPointX(path_index))
-        ref_path_list_y.append(path.GetPointY(path_index))
-        ref_path_list_phi.append(path.GetPointPhi(path_index))
-
-    stanley_controller = CppModule.Stanley()
-
-    MAX_SIM_TIME = 60.0
-    total_t = 0.0
-
-    plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0)
-
-    while(MAX_SIM_TIME > total_t and path.point_num - 10 > path.lastNearestPointIndex):
-        total_t += car.GetTs
-        delta_f = stanley_controller.StanleyControl(car, path)
-        car.UpdateState_RK4(delta_f, 0.0)
-
-        LogState(car_x_list, car_y_list, car_phi_list,
-                 car_v_list, car_delta_f_list, car_t_list,
-                 car.GetX, car.GetY, car.GetYaw,
-                 car.GetV, car.GetDeltaF, total_t)
-        
-        plt.cla()
-        plt.plot(ref_path_list_x, ref_path_list_y, '-.b', linewidth=1.0)
-        draw_trailer(car.GetX, car.GetY, car.GetYaw, car.GetDeltaF, plt)
-        plt.plot(car_x_list, car_y_list, "-r", label="trajectory")
-        plt.axis("equal")
-        plt.pause(0.001)
     
 if __name__ == "__main__":
     main_stanley()

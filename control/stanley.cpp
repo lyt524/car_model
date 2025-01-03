@@ -1,14 +1,4 @@
-#include <iostream>
-#include <cstddef>
-#include <cmath>
-#include <vector>
-#include <Eigen/Dense>
-#include <fstream>
 #include "stanley.h"
-#include "../models/kinematics_model.h"
-#include "../referencepath/reference_path.h"
-#include "../referencepath/point.h"
-#include "../tools/mathtools.h"
 
 
 int Stanley::FindNearestIndex(KiCar& ki_car, RefPath& ref_path){
@@ -84,7 +74,6 @@ double Stanley::StanleyControl(KiCar& ki_car, RefPath& ref_path){
     std::cout << "deltaF = " << deltaF << std::endl;
     return deltaF;
 }
-
 
 double Stanley::GetLateralError(){ return this->lateralError; }
 double Stanley::GetHeadingError(){ return this->headingError; }

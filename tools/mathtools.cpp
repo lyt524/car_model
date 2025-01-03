@@ -14,6 +14,8 @@ void NormalizeAngle(double& angle){
     }
 }
 
+
+// FIXME: check interval != 1
 void CalKappa(RefPath& path, int interval){
     int path_point_num = path.point_num;
     if(interval < 1 || interval >= 5){
@@ -58,6 +60,6 @@ void CalKappa(RefPath& path, int interval){
         if(cross_product <= 0){
             kappa *= -1;
         }
-        path.ref_path[4][i] = kappa;
+        path.ref_path[5][i] = kappa;
     }
 }
