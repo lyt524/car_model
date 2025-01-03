@@ -16,11 +16,22 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../extern/pybind11/tools/JoinPaths.cmake"
   "../extern/pybind11/tools/pybind11Common.cmake"
   "../extern/pybind11/tools/pybind11Tools.cmake"
+  "/usr/local/lib/cmake/OsqpEigen/OsqpEigenConfig.cmake"
+  "/usr/local/lib/cmake/OsqpEigen/OsqpEigenConfigVersion.cmake"
+  "/usr/local/lib/cmake/OsqpEigen/OsqpEigenTargets-release.cmake"
+  "/usr/local/lib/cmake/OsqpEigen/OsqpEigenTargets.cmake"
+  "/usr/local/lib/cmake/osqp/osqp-config-version.cmake"
+  "/usr/local/lib/cmake/osqp/osqp-config.cmake"
+  "/usr/local/lib/cmake/osqp/osqp-targets-noconfig.cmake"
+  "/usr/local/lib/cmake/osqp/osqp-targets.cmake"
+  "/usr/local/lib/cmake/osqp/osqpstatic-targets-noconfig.cmake"
+  "/usr/local/lib/cmake/osqp/osqpstatic-targets.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeDependentOption.cmake"
+  "/usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake"
@@ -45,6 +56,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.22/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake"
   "/usr/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake"
+  "/usr/share/eigen3/cmake/Eigen3Config.cmake"
+  "/usr/share/eigen3/cmake/Eigen3ConfigVersion.cmake"
+  "/usr/share/eigen3/cmake/Eigen3Targets.cmake"
   )
 
 # The corresponding makefile is:
@@ -61,7 +75,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/CppTest1226.dir/DependInfo.cmake"
-  "CMakeFiles/CppTest.dir/DependInfo.cmake"
+  "CMakeFiles/mpcTest.dir/DependInfo.cmake"
   "CMakeFiles/CppModule.dir/DependInfo.cmake"
   )

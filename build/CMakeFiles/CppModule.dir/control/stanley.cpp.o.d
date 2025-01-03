@@ -1,6 +1,6 @@
 CMakeFiles/CppModule.dir/control/stanley.cpp.o: \
  /home/plusai/car_model/control/stanley.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/11/iostream \
+ /home/plusai/car_model/control/stanley.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -401,7 +401,6 @@ CMakeFiles/CppModule.dir/control/stanley.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/plusai/car_model/control/stanley.h \
  /home/plusai/car_model/control/../models/kinematics_model.h \
  /home/plusai/car_model/control/../referencepath/reference_path.h \
  /home/plusai/car_model/control/../referencepath/point.h \

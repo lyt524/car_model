@@ -1,5 +1,4 @@
-/home/plusai/car_model/build/CMakeFiles/CppTest1226.dir
-/home/plusai/car_model/build/CMakeFiles/CppTest.dir
+/home/plusai/car_model/build/CMakeFiles/mpcTest.dir
 /home/plusai/car_model/build/CMakeFiles/CppModule.dir
 /home/plusai/car_model/build/CMakeFiles/edit_cache.dir
 /home/plusai/car_model/build/CMakeFiles/rebuild_cache.dir

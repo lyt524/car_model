@@ -272,6 +272,9 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//The directory containing a CMake configuration file for Eigen3.
+Eigen3_DIR:PATH=/usr/share/eigen3/cmake
+
 //Value Computed by CMake
 KinematicsModelTest_BINARY_DIR:STATIC=/home/plusai/car_model/build
 
@@ -280,6 +283,9 @@ KinematicsModelTest_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 KinematicsModelTest_SOURCE_DIR:STATIC=/home/plusai/car_model
+
+//The directory containing a CMake configuration file for OsqpEigen.
+OsqpEigen_DIR:PATH=/usr/local/lib/cmake/OsqpEigen
 
 //To enforce that a handle_type_name<> specialization exists
 PYBIND11_DISABLE_HANDLE_TYPE_NAME_DEFAULT_IMPLEMENTATION:BOOL=OFF
@@ -319,6 +325,9 @@ PYBIND11_USE_CROSSCOMPILING:BOOL=OFF
 
 //Path to a library.
 PYTHON_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpython3.10.so
+
+//The directory containing a CMake configuration file for osqp.
+osqp_DIR:PATH=/usr/local/lib/cmake/osqp
 
 //Value Computed by CMake
 pybind11_BINARY_DIR:STATIC=/home/plusai/car_model/build/extern/pybind11
