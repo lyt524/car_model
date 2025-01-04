@@ -41,9 +41,9 @@ void MpcController::SetConstrains(){
     */
     
     // v constrains
-    this->Cx_.resize(1 * this->N_, n * this->N_);
-    this->lx_.resize(1 * this->N_, 1);
-    this->ux_.resize(1 * this->N_, 1);
+    // this->Cx_.resize(1 * this->N_, n * this->N_);
+    // this->lx_.resize(1 * this->N_, 1);
+    // this->ux_.resize(1 * this->N_, 1);
 
     // a delta_f ddelta_f constrains
     this->Cu_.resize(2 * this->N_, m * this->N_);
@@ -56,12 +56,12 @@ void MpcController::SetConstrains(){
 
     for (int i = 0; i < this->N_; ++i) {
         this->Cu_.coeffRef(i * 2 + 0, i * m + 0) = 1;
-        this->lu_.coeffRef(i * 2 + 0, 0) = -this->a_max_;
-        this->uu_.coeffRef(i * 2 + 0, 0) = this->a_max_;
+        this->lu_.coeffRef(i * 2 + 0, 0) = -this->delta_f_max_;
+        this->uu_.coeffRef(i * 2 + 0, 0) = this->delta_f_max_;
 
         this->Cu_.coeffRef(i * 2 + 1, i * m + 1) = 1;
-        this->lu_.coeffRef(i * 2 + 1, 0) = -this->delta_f_max_;
-        this->uu_.coeffRef(i * 2 + 1, 0) = this->delta_f_max_;
+        this->lu_.coeffRef(i * 2 + 1, 0) = -this->a_max_;
+        this->uu_.coeffRef(i * 2 + 1, 0) = this->a_max_;
 
         // // -a_max <= a <= a_max for instance:
         // this->Cu_.coeffRef(i * 3 + 0, i * m + 0) = 1;
@@ -80,9 +80,9 @@ void MpcController::SetConstrains(){
         // this->uu_.coeffRef(i * 3 + 2, 0) = this->ddelta_f_max_ * this->car_model_.dt_;
  
         // -v_max <= v <= v_max
-        Cx_.coeffRef(i, i * n + 3) = 1;
-        lx_.coeffRef(i, 0) = -v_max_;
-        ux_.coeffRef(i, 0) = v_max_;
+        // Cx_.coeffRef(i, i * n + 3) = 1;
+        // lx_.coeffRef(i, 0) = -v_max_;
+        // ux_.coeffRef(i, 0) = v_max_;
     }
 
     // Prepare other matrices
@@ -92,12 +92,15 @@ void MpcController::SetConstrains(){
 
     Qx_.setIdentity();
     for (int i = 1; i < N_; ++i) {
-      Qx_.coeffRef(i * n - 2, i * n - 2) = rho_;
-      Qx_.coeffRef(i * n - 1, i * n - 1) = 0;
+        Qx_.coeffRef(i * n - 4, i * n - 1) = 10000;
+        Qx_.coeffRef(i * n - 3, i * n - 2) = 10000;
+        Qx_.coeffRef(i * n - 2, i * n - 1) = 5000;
+        Qx_.coeffRef(i * n - 1, i * n - 1) = 0;
     }
     Qx_.coeffRef(N_ * n - 4, N_ * n - 4) = rhoN_;
     Qx_.coeffRef(N_ * n - 3, N_ * n - 3) = rhoN_;
     Qx_.coeffRef(N_ * n - 2, N_ * n - 2) = rhoN_ * rho_;
+    Qx_.coeffRef(N_ * n - 1, N_ * n - 1) = 0;
 
     A_.resize(n_cons * N_, m * N_);
     l_.resize(n_cons * N_, 1);
@@ -167,7 +170,7 @@ void MpcController::SolveQP(){
     VectorX x0;
     x0 << this->ego_x_, this->ego_y_, this->ego_phi_, this->ego_v_;
 
-    this->pre_car_ = this->ego_car_;  // copy car
+    this->pre_car_ = this->ego_car_;  // copy car_
 
     for(int i = 0; i < N_; ++i){
         // set car_model_.Bd_, Ad_, gd_
@@ -176,17 +179,17 @@ void MpcController::SolveQP(){
         }else{
             this->car_model_.linearization(this->pre_car_.GetYaw(), this->pre_car_.GetV(), this->pre_car_.GetDeltaF());
         }
-        std::cout << "_______________________" << endl;
-        std::cout << "car_model_.Bd_" << endl;
-        std::cout << this->car_model_.Bd_ << endl;
+        // std::cout << "_______________________" << endl;
+        // std::cout << "car_model_.Bd_" << endl;
+        // std::cout << this->car_model_.Bd_ << endl;
 
-        std::cout << "_______________________" << endl;
-        std::cout << "car_model_.Ad_" << endl;
-        std::cout << this->car_model_.Ad_ << endl;
+        // std::cout << "_______________________" << endl;
+        // std::cout << "car_model_.Ad_" << endl;
+        // std::cout << this->car_model_.Ad_ << endl;
 
-        std::cout << "_______________________" << endl;
-        std::cout << "car_model_.gd_" << endl;
-        std::cout << this->car_model_.gd_ << endl;
+        // std::cout << "_______________________" << endl;
+        // std::cout << "car_model_.gd_" << endl;
+        // std::cout << this->car_model_.gd_ << endl;
 
         // calculate big state-space matrices
         /*
@@ -231,17 +234,17 @@ void MpcController::SolveQP(){
         // predition model move a step
         this->pre_car_.UpdateState_RK4(this->ego_delta_f_, this->ego_a_);
     }
-    std::cout << "_______________________" << std::endl;
-    std::cout << "BB" << endl;
-    std::cout << BB << endl;
+    // std::cout << "_______________________" << std::endl;
+    // std::cout << "BB" << endl;
+    // std::cout << BB << endl;
 
-    std::cout << "_______________________" << std::endl;
-    std::cout << "AA" << endl;
-    std::cout << AA << endl;
+    // std::cout << "_______________________" << std::endl;
+    // std::cout << "AA" << endl;
+    // std::cout << AA << endl;
 
-    std::cout << "_______________________" << std::endl;
-    std::cout << "gg" << endl;
-    std::cout << gg << endl;
+    // std::cout << "_______________________" << std::endl;
+    // std::cout << "gg" << endl;
+    // std::cout << gg << endl;
 
     std::cout << "_______________________" << std::endl;
     Eigen::MatrixXd qx_dense = Eigen::MatrixXd(qx);
@@ -262,9 +265,9 @@ void MpcController::SolveQP(){
     *               | ...  |                                | ...  |
     *               \  xN  /                                \ uN-1 /
     */
-    Eigen::SparseMatrix<double> Cx = Cx_ * BB_sparse;
-    Eigen::SparseMatrix<double> lx = lx_ - Cx_ * AA_sparse * x0_sparse - Cx_ * gg_sparse;
-    Eigen::SparseMatrix<double> ux = ux_ - Cx_ * AA_sparse * x0_sparse - Cx_ * gg_sparse;
+    // Eigen::SparseMatrix<double> Cx = Cx_ * BB_sparse;
+    // Eigen::SparseMatrix<double> lx = lx_ - Cx_ * AA_sparse * x0_sparse - Cx_ * gg_sparse;
+    // Eigen::SparseMatrix<double> ux = ux_ - Cx_ * AA_sparse * x0_sparse - Cx_ * gg_sparse;
 
     /*
     *        / Cx  \       / lx  \       / ux  \
@@ -273,18 +276,21 @@ void MpcController::SolveQP(){
     // set A_
 
     Eigen::SparseMatrix<double> A_T = A_.transpose();
-    A_T.middleCols(0, Cx.rows()) = Cx.transpose();
-    A_T.middleCols(Cx.rows(), Cu_.rows()) = Cu_.transpose();
+    A_T = Cu_.transpose();
+    // A_T.middleCols(0, Cx.rows()) = Cx.transpose();
+    // A_T.middleCols(Cx.rows(), Cu_.rows()) = Cu_.transpose();
     A_ = A_T.transpose();
     // set l_ u_
-    for (int i = 0; i < lx.rows(); ++i) {
-        l_.coeffRef(i, 0) = lx.coeff(i, 0);
-        u_.coeffRef(i, 0) = ux.coeff(i, 0);
-    }
-    for (int i = 0; i < lu_.rows(); ++i) {
-        l_.coeffRef(i + lx.rows(), 0) = lu_.coeff(i, 0);
-        u_.coeffRef(i + lx.rows(), 0) = uu_.coeff(i, 0);
-    }
+    l_ = lu_;
+    u_ = uu_;
+    // for (int i = 0; i < lx.rows(); ++i) {
+    //     l_.coeffRef(i, 0) = lx.coeff(i, 0);
+    //     u_.coeffRef(i, 0) = ux.coeff(i, 0);
+    // }
+    // for (int i = 0; i < lu_.rows(); ++i) {
+    //     l_.coeffRef(i + lx.rows(), 0) = lu_.coeff(i, 0);
+    //     u_.coeffRef(i + lx.rows(), 0) = uu_.coeff(i, 0);
+    // }
 
     Eigen::MatrixXd l_dense = Eigen::MatrixXd(l_);
     Eigen::MatrixXd u_dense = Eigen::MatrixXd(u_);
@@ -297,7 +303,6 @@ void MpcController::SolveQP(){
     std::cout << "_______________________" << std::endl;
     std::cout << "l_ :" << endl;
     std::cout << l_dense << std::endl;
-
     std::cout << "_______________________" << std::endl;
     std::cout << "u_ :" << endl;
     std::cout << u_dense << std::endl;
@@ -305,28 +310,31 @@ void MpcController::SolveQP(){
     // set P_ q_
     Eigen::SparseMatrix<double> BBT_sparse = BB_sparse.transpose();
     P_ = BBT_sparse * Qx_ * BB_sparse;
-    q_ = BBT_sparse * Qx_.transpose() * (AA_sparse * x0_sparse + gg_sparse) + BBT_sparse * qx;
+    // q_ = BBT_sparse * Qx_.transpose() * (AA_sparse * x0_sparse + gg_sparse) + BBT_sparse * qx;
+    q_ = 2 * BBT_sparse * Qx_.transpose() * (AA_sparse * x0_sparse + gg_sparse + qx);
+
 
     // osqp
     Eigen::VectorXd q_d = q_.toDense();
     Eigen::VectorXd l_d = l_.toDense();
     Eigen::VectorXd u_d = u_.toDense();
 
-    std::cout << "_______________________" << std::endl;
-    std::cout << "P_ :" << endl;
-    std::cout << P_ << std::endl;
+    // std::cout << "_______________________" << std::endl;
+    // std::cout << "P_ :" << endl;
+    // std::cout << P_ << std::endl;
 
-    std::cout << "_______________________" << std::endl;
-    std::cout << "q_ :" << endl;
-    std::cout << q_d << std::endl;
+    // std::cout << "_______________________" << std::endl;
+    // std::cout << "q_ :" << endl;
+    // std::cout << q_d << std::endl;
 
     // qpSolver_.setMats(P_, q_d, A_, l_d, u_d);
-    qpSolver_.setMats(P_, q_d, A_, l_dense, u_dense);
+    qpSolver_.setMats(P_, q_d, A_, l_d, u_d);
     qpSolver_.getRes();
 
     // set control command
-    this->command_delta_f = qpSolver_.solution_(0);
-    this->command_a_ = qpSolver_.solution_(1);
+    this->command_delta_f = -qpSolver_.solution_(4);
+    this->command_a_ = -qpSolver_.solution_(5);
+
 }
 
 void MpcController::GetCarState(){
@@ -335,6 +343,13 @@ void MpcController::GetCarState(){
     this->ego_phi_ = ego_car_.GetYaw();
     this->ego_v_ = ego_car_.GetV();
     this->ego_delta_f_ = ego_car_.GetDeltaF();
+
+    std::cout << "____________ego_car_state____________" << std::endl;
+    std::cout << "ego_x_" << ego_x_ << std::endl;
+    std::cout << "ego_y_" << ego_y_ << std::endl;
+    std::cout << "ego_phi_" << ego_phi_ << std::endl;
+    std::cout << "ego_v_" << ego_v_ << std::endl;
+    std::cout << "ego_delta_f_" << ego_delta_f_ << std::endl;
 }
 
 void MpcController::WriteControlResult(std::ofstream& outFile){
@@ -355,8 +370,13 @@ void QPSolver::setMats(Eigen::SparseMatrix<double> P_,
             Eigen::SparseMatrix<double> A_,
             Eigen::VectorXd l_d,
             Eigen::VectorXd u_d){
+
+    // qpSolver_.data()->clearHessianMatrix();
+    // qpSolver_.data()->clearLinearConstraintsMatrix();
+    qpSolver_.clearSolver();
+
     qpSolver_.data()->setNumberOfVariables(2 * 20);
-    qpSolver_.data()->setNumberOfConstraints(3 * 20);
+    qpSolver_.data()->setNumberOfConstraints(2 * 20);
     qpSolver_.data()->setHessianMatrix(P_);
     qpSolver_.data()->setGradient(q_d);
     qpSolver_.data()->setLinearConstraintsMatrix(A_);

@@ -30,7 +30,7 @@ public:
 };
 
 // v a delta_f ddelta_f Constrained state variables and control variables
-static constexpr int n_cons = 3;
+static constexpr int n_cons = 2;
 // static constexpr int n_cons = 4;
 
 class MpcController{

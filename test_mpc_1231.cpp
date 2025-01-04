@@ -40,12 +40,10 @@ int main(){
                                 0.5,                 // delta_f max
                                 0.2);                // ddelta_f max
 
-    mpc_controller.SetConstrains();
-
     while(MAX_SIM_TIME > total_t && ref_path.ref_path[0].size() - 10 > ref_path.lastNearestPointIndex){
         // add simulator total t
         total_t += ego_car.GetTs();
-
+        mpc_controller.SetConstrains();
         // get mpc control command
         mpc_controller.SolveQP();
 
