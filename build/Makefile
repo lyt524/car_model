@@ -166,29 +166,29 @@ bind/bind.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppModule.dir/build.make CMakeFiles/CppModule.dir/bind/bind.cpp.s
 .PHONY : bind/bind.cpp.s
 
-control/mpc_coupling.o: control/mpc_coupling.cpp.o
-.PHONY : control/mpc_coupling.o
+control/mpc_new.o: control/mpc_new.cpp.o
+.PHONY : control/mpc_new.o
 
 # target to build an object file
-control/mpc_coupling.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o
-.PHONY : control/mpc_coupling.cpp.o
+control/mpc_new.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o
+.PHONY : control/mpc_new.cpp.o
 
-control/mpc_coupling.i: control/mpc_coupling.cpp.i
-.PHONY : control/mpc_coupling.i
+control/mpc_new.i: control/mpc_new.cpp.i
+.PHONY : control/mpc_new.i
 
 # target to preprocess a source file
-control/mpc_coupling.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.i
-.PHONY : control/mpc_coupling.cpp.i
+control/mpc_new.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_new.cpp.i
+.PHONY : control/mpc_new.cpp.i
 
-control/mpc_coupling.s: control/mpc_coupling.cpp.s
-.PHONY : control/mpc_coupling.s
+control/mpc_new.s: control/mpc_new.cpp.s
+.PHONY : control/mpc_new.s
 
 # target to generate assembly for a file
-control/mpc_coupling.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.s
-.PHONY : control/mpc_coupling.cpp.s
+control/mpc_new.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_new.cpp.s
+.PHONY : control/mpc_new.cpp.s
 
 control/stanley.o: control/stanley.cpp.o
 .PHONY : control/stanley.o
@@ -213,30 +213,6 @@ control/stanley.s: control/stanley.cpp.s
 control/stanley.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppModule.dir/build.make CMakeFiles/CppModule.dir/control/stanley.cpp.s
 .PHONY : control/stanley.cpp.s
-
-models/bicycle_model_mpc.o: models/bicycle_model_mpc.cpp.o
-.PHONY : models/bicycle_model_mpc.o
-
-# target to build an object file
-models/bicycle_model_mpc.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o
-.PHONY : models/bicycle_model_mpc.cpp.o
-
-models/bicycle_model_mpc.i: models/bicycle_model_mpc.cpp.i
-.PHONY : models/bicycle_model_mpc.i
-
-# target to preprocess a source file
-models/bicycle_model_mpc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.i
-.PHONY : models/bicycle_model_mpc.cpp.i
-
-models/bicycle_model_mpc.s: models/bicycle_model_mpc.cpp.s
-.PHONY : models/bicycle_model_mpc.s
-
-# target to generate assembly for a file
-models/bicycle_model_mpc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.s
-.PHONY : models/bicycle_model_mpc.cpp.s
 
 models/kinematics_model.o: models/kinematics_model.cpp.o
 .PHONY : models/kinematics_model.o
@@ -292,29 +268,29 @@ referencepath/reference_path.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppModule.dir/build.make CMakeFiles/CppModule.dir/referencepath/reference_path.cpp.s
 .PHONY : referencepath/reference_path.cpp.s
 
-test_mpc_1231.o: test_mpc_1231.cpp.o
-.PHONY : test_mpc_1231.o
+test_new_mpc.o: test_new_mpc.cpp.o
+.PHONY : test_new_mpc.o
 
 # target to build an object file
-test_mpc_1231.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o
-.PHONY : test_mpc_1231.cpp.o
+test_new_mpc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o
+.PHONY : test_new_mpc.cpp.o
 
-test_mpc_1231.i: test_mpc_1231.cpp.i
-.PHONY : test_mpc_1231.i
+test_new_mpc.i: test_new_mpc.cpp.i
+.PHONY : test_new_mpc.i
 
 # target to preprocess a source file
-test_mpc_1231.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.i
-.PHONY : test_mpc_1231.cpp.i
+test_new_mpc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_new_mpc.cpp.i
+.PHONY : test_new_mpc.cpp.i
 
-test_mpc_1231.s: test_mpc_1231.cpp.s
-.PHONY : test_mpc_1231.s
+test_new_mpc.s: test_new_mpc.cpp.s
+.PHONY : test_new_mpc.s
 
 # target to generate assembly for a file
-test_mpc_1231.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.s
-.PHONY : test_mpc_1231.cpp.s
+test_new_mpc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_new_mpc.cpp.s
+.PHONY : test_new_mpc.cpp.s
 
 tools/mathtools.o: tools/mathtools.cpp.o
 .PHONY : tools/mathtools.o
@@ -356,24 +332,21 @@ help:
 	@echo "... bind/bind.o"
 	@echo "... bind/bind.i"
 	@echo "... bind/bind.s"
-	@echo "... control/mpc_coupling.o"
-	@echo "... control/mpc_coupling.i"
-	@echo "... control/mpc_coupling.s"
+	@echo "... control/mpc_new.o"
+	@echo "... control/mpc_new.i"
+	@echo "... control/mpc_new.s"
 	@echo "... control/stanley.o"
 	@echo "... control/stanley.i"
 	@echo "... control/stanley.s"
-	@echo "... models/bicycle_model_mpc.o"
-	@echo "... models/bicycle_model_mpc.i"
-	@echo "... models/bicycle_model_mpc.s"
 	@echo "... models/kinematics_model.o"
 	@echo "... models/kinematics_model.i"
 	@echo "... models/kinematics_model.s"
 	@echo "... referencepath/reference_path.o"
 	@echo "... referencepath/reference_path.i"
 	@echo "... referencepath/reference_path.s"
-	@echo "... test_mpc_1231.o"
-	@echo "... test_mpc_1231.i"
-	@echo "... test_mpc_1231.s"
+	@echo "... test_new_mpc.o"
+	@echo "... test_new_mpc.i"
+	@echo "... test_new_mpc.s"
 	@echo "... tools/mathtools.o"
 	@echo "... tools/mathtools.i"
 	@echo "... tools/mathtools.s"

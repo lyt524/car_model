@@ -69,19 +69,19 @@ include CMakeFiles/mpcTest.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mpcTest.dir/flags.make
 
-CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o: CMakeFiles/mpcTest.dir/flags.make
-CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o: ../test_mpc_1231.cpp
-CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o: CMakeFiles/mpcTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o -MF CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o.d -o CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o -c /home/plusai/car_model/test_mpc_1231.cpp
+CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o: CMakeFiles/mpcTest.dir/flags.make
+CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o: ../test_new_mpc.cpp
+CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o: CMakeFiles/mpcTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o -MF CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o.d -o CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o -c /home/plusai/car_model/test_new_mpc.cpp
 
-CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/test_mpc_1231.cpp > CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.i
+CMakeFiles/mpcTest.dir/test_new_mpc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mpcTest.dir/test_new_mpc.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/test_new_mpc.cpp > CMakeFiles/mpcTest.dir/test_new_mpc.cpp.i
 
-CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/test_mpc_1231.cpp -o CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.s
+CMakeFiles/mpcTest.dir/test_new_mpc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mpcTest.dir/test_new_mpc.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/test_new_mpc.cpp -o CMakeFiles/mpcTest.dir/test_new_mpc.cpp.s
 
 CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.o: CMakeFiles/mpcTest.dir/flags.make
 CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.o: ../models/kinematics_model.cpp
@@ -97,24 +97,10 @@ CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/models/kinematics_model.cpp -o CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.s
 
-CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o: CMakeFiles/mpcTest.dir/flags.make
-CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o: ../models/bicycle_model_mpc.cpp
-CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o: CMakeFiles/mpcTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o -MF CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o.d -o CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o -c /home/plusai/car_model/models/bicycle_model_mpc.cpp
-
-CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/models/bicycle_model_mpc.cpp > CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.i
-
-CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/models/bicycle_model_mpc.cpp -o CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.s
-
 CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o: CMakeFiles/mpcTest.dir/flags.make
 CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o: ../tools/mathtools.cpp
 CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o: CMakeFiles/mpcTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o -MF CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o.d -o CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o -c /home/plusai/car_model/tools/mathtools.cpp
 
 CMakeFiles/mpcTest.dir/tools/mathtools.cpp.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/mpcTest.dir/tools/mathtools.cpp.s: cmake_force
 CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o: CMakeFiles/mpcTest.dir/flags.make
 CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o: ../referencepath/reference_path.cpp
 CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o: CMakeFiles/mpcTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o -MF CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o.d -o CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o -c /home/plusai/car_model/referencepath/reference_path.cpp
 
 CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.i: cmake_force
@@ -139,43 +125,41 @@ CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/referencepath/reference_path.cpp -o CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.s
 
-CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o: CMakeFiles/mpcTest.dir/flags.make
-CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o: ../control/mpc_coupling.cpp
-CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o: CMakeFiles/mpcTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o -MF CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o.d -o CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o -c /home/plusai/car_model/control/mpc_coupling.cpp
+CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o: CMakeFiles/mpcTest.dir/flags.make
+CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o: ../control/mpc_new.cpp
+CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o: CMakeFiles/mpcTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o -MF CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o.d -o CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o -c /home/plusai/car_model/control/mpc_new.cpp
 
-CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/control/mpc_coupling.cpp > CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.i
+CMakeFiles/mpcTest.dir/control/mpc_new.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mpcTest.dir/control/mpc_new.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plusai/car_model/control/mpc_new.cpp > CMakeFiles/mpcTest.dir/control/mpc_new.cpp.i
 
-CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/control/mpc_coupling.cpp -o CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.s
+CMakeFiles/mpcTest.dir/control/mpc_new.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mpcTest.dir/control/mpc_new.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plusai/car_model/control/mpc_new.cpp -o CMakeFiles/mpcTest.dir/control/mpc_new.cpp.s
 
 # Object files for target mpcTest
 mpcTest_OBJECTS = \
-"CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o" \
+"CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o" \
 "CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.o" \
-"CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o" \
 "CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o" \
 "CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o" \
-"CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o"
+"CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o"
 
 # External object files for target mpcTest
 mpcTest_EXTERNAL_OBJECTS =
 
-mpcTest: CMakeFiles/mpcTest.dir/test_mpc_1231.cpp.o
+mpcTest: CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o
 mpcTest: CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.o
-mpcTest: CMakeFiles/mpcTest.dir/models/bicycle_model_mpc.cpp.o
 mpcTest: CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o
 mpcTest: CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o
-mpcTest: CMakeFiles/mpcTest.dir/control/mpc_coupling.cpp.o
+mpcTest: CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o
 mpcTest: CMakeFiles/mpcTest.dir/build.make
 mpcTest: /usr/local/lib/libOsqpEigen.so.0.8.1
 mpcTest: /usr/local/lib/libosqp.so
 mpcTest: CMakeFiles/mpcTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable mpcTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable mpcTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mpcTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -3,7 +3,25 @@ import matplotlib.pyplot as plt
 
 ref_path_data = np.loadtxt('/home/plusai/car_model/build/reference_path.txt')
 car_state_data = np.loadtxt('/home/plusai/car_model/build/car_state.txt')
-control_result_data = np.loadtxt('/home/plusai/car_model/build/control_result.txt')
+# control_result_data = np.loadtxt('/home/plusai/car_model/build/control_result.txt')
+
+def showResult_mpc(ref_path_data, car_state_data):
+    ref_path_x = ref_path_data[:, 0]
+    ref_path_y = ref_path_data[:, 1]
+    ref_path_phi = ref_path_data[:, 2]
+
+    car_pose_x = car_state_data[:, 0]
+    car_pose_y = car_state_data[:, 1]
+    car_pose_yaw = car_state_data[:, 2]
+    car_pose_v = car_state_data[:, 3]
+
+    plt.subplot(2, 3, 1)
+    plt.plot(ref_path_x, ref_path_y, '-.b', linewidth=1.0, label="reference path")
+    plt.plot(car_pose_x, car_pose_y, 'r', label="trajectory")
+    plt.title("actual tracking effect")
+    plt.legend(loc='upper right')
+
+    plt.show()
 
 
 def showResult(ref_path_data, car_state_data, control_result_data):
@@ -55,5 +73,6 @@ def showResult(ref_path_data, car_state_data, control_result_data):
     plt.show()
 
 if __name__ == "__main__":
-    showResult(ref_path_data, car_state_data, control_result_data)
+    # showResult(ref_path_data, car_state_data, control_result_data)
+    showResult_mpc(ref_path_data, car_state_data)
 

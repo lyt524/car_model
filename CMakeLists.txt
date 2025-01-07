@@ -38,13 +38,21 @@ include_directories(/usr/include/eigen3)
 # control/stanley.cpp
 # )
 
+# add_executable(mpcTest 
+# test_mpc_1231.cpp
+# models/kinematics_model.cpp
+# models/bicycle_model_mpc.cpp
+# tools/mathtools.cpp
+# referencepath/reference_path.cpp
+# control/mpc_coupling.cpp
+# )
+
 add_executable(mpcTest 
-test_mpc_1231.cpp
+test_new_mpc.cpp
 models/kinematics_model.cpp
-models/bicycle_model_mpc.cpp
 tools/mathtools.cpp
 referencepath/reference_path.cpp
-control/mpc_coupling.cpp
+control/mpc_new.cpp
 )
 
 add_subdirectory(extern/pybind11)
