@@ -1,8 +1,7 @@
 #pragma once
 
-using namespace std;
 #include <vector>
-
+#include <algorithm>
 
 class KiCar{
 private:

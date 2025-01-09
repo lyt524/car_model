@@ -1,6 +1,6 @@
 CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o: \
  /home/plusai/car_model/tools/mathtools.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/11/iostream \
+ /home/plusai/car_model/tools/mathtools.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -172,5 +172,8 @@ CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/plusai/car_model/tools/mathtools.h \
- /home/plusai/car_model/tools/../referencepath/reference_path.h
+ /home/plusai/car_model/tools/../referencepath/reference_path.h \
+ /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc

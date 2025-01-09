@@ -1,6 +1,3 @@
 /home/plusai/car_model/build/CMakeFiles/mpcTest.dir
-/home/plusai/car_model/build/CMakeFiles/CppModule.dir
 /home/plusai/car_model/build/CMakeFiles/edit_cache.dir
 /home/plusai/car_model/build/CMakeFiles/rebuild_cache.dir
-/home/plusai/car_model/build/extern/pybind11/CMakeFiles/edit_cache.dir
-/home/plusai/car_model/build/extern/pybind11/CMakeFiles/rebuild_cache.dir

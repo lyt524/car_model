@@ -6,7 +6,10 @@
 
 #include "../referencepath/reference_path.h"
 
-// Normalize radians angle to (-pi, pi]
+// Normalize radians value to (-pi, pi]
 void NormalizeAngle(double& angle);
 
 void CalKappa(RefPath& path, int interval);
+
+// transform a radians value to degree value
+double radToDeg(const double& angle);

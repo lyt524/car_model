@@ -8,6 +8,7 @@
 #include <deque>
 #include <fstream>
 #include <unsupported/Eigen/KroneckerProduct>
+#include <algorithm>
 
 #include "../models/kinematics_model.h"
 #include "../referencepath/reference_path.h"
@@ -26,6 +27,8 @@ public:
     void setH_F();
     void setConstrains();
     void calMPC();
+    void writeControlResult(std::ofstream& outFile);
+    void calLateralError();
 
     // osqp
     void setMats(Eigen::SparseMatrix<double> P_, 
@@ -60,12 +63,16 @@ public:
     Eigen::SparseMatrix<double> H_sparse;
 
     const double dt = 0.01;
-    const int Np_ = 10; // 预测步长
+    const int Np_ = 10;  // 预测步长
     const int Nx_ = 3;   // 状态量个数
     const int Nu_ = 2;   // 控制量个数
 
     double d_delta_f = 0.0;
     double d_v = 0.0;
+    double headingError = 0.0;
+    double lateralError = 0.0;
+
+    double v_ref_ = 2.0;
 
     KiCar& car_;
     RefPath& ref_path_;
@@ -74,3 +81,5 @@ public:
 };
 
 Eigen::MatrixXd matrixPower(const Eigen::MatrixXd& A, int n);
+
+

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 ref_path_data = np.loadtxt('/home/plusai/car_model/build/reference_path.txt')
 car_state_data = np.loadtxt('/home/plusai/car_model/build/car_state.txt')
-# control_result_data = np.loadtxt('/home/plusai/car_model/build/control_result.txt')
+control_result_data = np.loadtxt('/home/plusai/car_model/build/control_result.txt')
 
 def showResult_mpc(ref_path_data, car_state_data):
     ref_path_x = ref_path_data[:, 0]
@@ -73,6 +73,6 @@ def showResult(ref_path_data, car_state_data, control_result_data):
     plt.show()
 
 if __name__ == "__main__":
-    # showResult(ref_path_data, car_state_data, control_result_data)
-    showResult_mpc(ref_path_data, car_state_data)
+    showResult(ref_path_data, car_state_data, control_result_data)
+    # showResult_mpc(ref_path_data, car_state_data)
 

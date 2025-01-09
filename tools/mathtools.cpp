@@ -1,7 +1,3 @@
-#include <iostream>
-#include <cmath>
-#include <vector>
-
 #include "mathtools.h"
 
 // Normalize radians angle to (-pi, pi]
@@ -13,7 +9,6 @@ void NormalizeAngle(double& angle){
         angle += 2. * M_PI;
     }
 }
-
 
 // FIXME: check interval != 1
 void CalKappa(RefPath& path, int interval){
@@ -62,4 +57,8 @@ void CalKappa(RefPath& path, int interval){
         }
         path.ref_path[5][i] = kappa;
     }
+}
+
+double radToDeg(const double& angle){
+    return angle * 180 / M_PI;
 }

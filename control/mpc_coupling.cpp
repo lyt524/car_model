@@ -18,11 +18,11 @@ MpcController::MpcController(Bicycle& car_model,  // mpc model
     this->delta_f_max_ = delta_f_max;
     this->ddelta_f_max_ = ddelta_f_max;
 
-    std::cout << "MpcController: " << endl;
-    std::cout << "state variables size: " << this->n << endl
-              << "control variables size: " << this->m << endl
-              << "predect step: " << this->N_ << endl
-              << endl;
+    std::cout << "MpcController: " << std::endl;
+    std::cout << "state variables size: " << this->n << std::endl
+              << "control variables size: " << this->m << std::endl
+              << "predect step: " << this->N_ << std::endl
+              << std::endl;
 }
 
 void MpcController::SetConstrains(){
@@ -248,8 +248,8 @@ void MpcController::SolveQP(){
 
     std::cout << "_______________________" << std::endl;
     Eigen::MatrixXd qx_dense = Eigen::MatrixXd(qx);
-    std::cout << "qx" << endl;
-    std::cout << qx_dense << endl;
+    std::cout << "qx" << std::endl;
+    std::cout << qx_dense << std::endl;
 
     Eigen::SparseMatrix<double> BB_sparse = BB.sparseView();
     Eigen::SparseMatrix<double> AA_sparse = AA.sparseView();
@@ -297,14 +297,14 @@ void MpcController::SolveQP(){
     Eigen::MatrixXd A_dense = Eigen::MatrixXd(A_);
 
     std::cout << "_______________________" << std::endl;
-    std::cout << "A_ :" << endl;
+    std::cout << "A_ :" << std::endl;
     std::cout << A_dense << std::endl;
 
     std::cout << "_______________________" << std::endl;
-    std::cout << "l_ :" << endl;
+    std::cout << "l_ :" << std::endl;
     std::cout << l_dense << std::endl;
     std::cout << "_______________________" << std::endl;
-    std::cout << "u_ :" << endl;
+    std::cout << "u_ :" << std::endl;
     std::cout << u_dense << std::endl;
 
     // set P_ q_

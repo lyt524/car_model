@@ -1,9 +1,8 @@
 #include "mpc_new.h"
 
-
 Eigen::MatrixXd matrixPower(const Eigen::MatrixXd& A, int n) {
     int size = A.rows();
-    Eigen::MatrixXd result = Eigen::MatrixXd::Identity(size, size);  // 初始化为单位矩阵
+    Eigen::MatrixXd result = Eigen::MatrixXd::Identity(size, size);
     Eigen::MatrixXd base = A;
 
     while (n > 0) {
@@ -54,8 +53,18 @@ void MPC::setBicycleModel(){
     this->B1 << this->dt * cos(car_.GetYaw()), 0,
                 this->dt * sin(car_.GetYaw()), 0,
                 tan(car_.GetDeltaF()) * this->dt / car_.GetL(), 
-                car_.GetV()* this->dt / car_.GetL() / pow(cos(car_.GetYaw()), 2);
-    
+                car_.GetV()* this->dt / car_.GetL() / pow(cos(car_.GetDeltaF()), 2);
+
+    // this->A1 << 1, 0, -1 * this->v_ref_ * this->dt * sin(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)),
+    //             0, 1, this->v_ref_ * this->dt * cos(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)),
+    //             0, 0, 1;
+
+    // this->B1 << this->dt * cos(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)), 0,
+    //             this->dt * sin(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)), 0,
+    //             tan(0.0) * this->dt / car_.GetL(), 
+    //             this->v_ref_* this->dt / car_.GetL() / pow(cos(0.0), 2);
+
+    std::cout << "setBicycleModel OK" << std::endl;
     // std::cout << "________" << std::endl;
     // std::cout << "A1 = " << std::endl;
     // std::cout << A1 << std::endl;
@@ -109,8 +118,8 @@ void MPC::setKesi(){
     double x_ref = ref_path_.GetPointX(ref_path_.lastNearestPointIndex);
     double y_ref = ref_path_.GetPointY(ref_path_.lastNearestPointIndex);
     double yaw_ref = ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex);
-    double v_ref = 2;
-    double delta_f_ref = 0;
+    double v_ref = this->v_ref_;
+    double delta_f_ref = 0.0;
 
     this->kesi << x0 - x_ref,
                   y0 - y_ref,
@@ -118,14 +127,20 @@ void MPC::setKesi(){
                   v0 - v_ref,
                   delta_f0 - delta_f_ref;
 
+    std::cout << "setKesi OK" << std::endl;
     std::cout << "________" << std::endl;
     std::cout << "kesi = " << std::endl;
     std::cout << kesi << std::endl;
 }
 
 void MPC::setQR(){
-    this->Q = 10 * Eigen::MatrixXd::Identity(this->Nx_ * this->Np_, this->Nx_ * this->Np_);
-    this->R = 10 * Eigen::MatrixXd::Identity(this->Nu_ * this->Np_, this->Nu_ * this->Np_);
+    this->Q = 100 * Eigen::MatrixXd::Identity(this->Nx_ * this->Np_, this->Nx_ * this->Np_);
+    for(int i = 0; i < this->Nx_ * this->Np_; i += this->Nx_){
+        this->Q(i+2, i+2) = 1000;
+    }
+    this->R = 100 * Eigen::MatrixXd::Identity(this->Nu_ * this->Np_, this->Nu_ * this->Np_);
+
+    std::cout << "setQR OK" << std::endl;
     // std::cout << "________" << std::endl;
     // std::cout << "Q = " << std::endl;
     // std::cout << Q << std::endl;
@@ -139,12 +154,15 @@ void MPC::setABC(){
     this->A.block(3, 0, 2, 3) = Eigen::MatrixXd::Zero(2, 3);
     this->A.block(3, 3, 2, 2) = Eigen::MatrixXd::Identity(2, 2);
 
-    this->B.block(0, 0, 3, 2) = this->B1;
+    TODO:
+    // this->B.block(0, 0, 3, 2) = this->B1;
+    this->B.block(0, 0, 3, 2) = Eigen::MatrixXd::Zero(3, 2);
     this->B.block(3, 0, 2, 2) = Eigen::MatrixXd::Identity(2, 2);
 
     this->C.block(0, 0, 3, 3) = Eigen::MatrixXd::Identity(3, 3);
     this->C.block(0, 3, 3, 2) = Eigen::MatrixXd::Zero(3, 2);
 
+    std::cout << "setABC OK" << std::endl;
     // std::cout << "________" << std::endl;
     // std::cout << "A = " << std::endl;
     // std::cout << A << std::endl;
@@ -163,20 +181,6 @@ void MPC::calMPC(){
     setPHI_THETA();
     setH_F();
     setConstrains();
-
-    // std::cout << "Ad_sparse rows: " << Ad_sparse.rows() << std::endl;
-    // std::cout << "Ad_sparse cols: " << Ad_sparse.cols() << std::endl;
-
-    // ld = Eigen::VectorXd::Constant(Nu_ * Np_, -1); // -1 对应下限
-    // ud = Eigen::VectorXd::Constant(Nu_ * Np_, 1);  // 1 对应上限
-
-
-    // setMats(H_sparse, F, Ad_sparse, ld, ud);
-    // if(getRes()){
-    //     std::cout << "________" << std::endl;
-    //     std::cout << "this->solution_ = " << std::endl;
-    //     std::cout << this->solution_ << std::endl;
-    // }
 }
 
 void MPC::setPHI_THETA(){
@@ -196,11 +200,12 @@ void MPC::setPHI_THETA(){
         }
     }
 
-    // std::cout << "________" << std::endl;
-    // std::cout << "THETA = " << std::endl;
-    // std::cout << THETA << std::endl;
-    // std::cout << "PHI = " << std::endl;
-    // std::cout << PHI << std::endl;
+    std::cout << "setPHI_THETA OK" << std::endl;
+    std::cout << "________" << std::endl;
+    std::cout << "THETA = " << std::endl;
+    std::cout << THETA << std::endl;
+    std::cout << "PHI = " << std::endl;
+    std::cout << PHI << std::endl;
 }
 
 void MPC::setH_F(){
@@ -208,6 +213,7 @@ void MPC::setH_F(){
     this->F = 2 * (this->PHI * this->kesi).transpose() * this->Q * this->THETA;
     this->H_sparse = this->H.sparseView();
 
+    std::cout << "setH_F OK" << std::endl;
     // std::cout << "________" << std::endl;
     // std::cout << "H = " << std::endl;
     // std::cout << H << std::endl;
@@ -232,9 +238,8 @@ void MPC::setConstrains(){
     // std::cout << A_I << std::endl;
 
     Eigen::VectorXd U(this->Nu_);
-    // U.resize(this->Nu_);
-    double v_ref = 2;
-    double delta_f_ref = 0;
+    double v_ref = this->v_ref_;
+    double delta_f_ref = 0.0;
     double dv = car_.GetV() - v_ref;
     double d_deltaf = car_.GetDeltaF() - delta_f_ref;
     U << dv, d_deltaf;
@@ -264,7 +269,9 @@ void MPC::setConstrains(){
     // std::cout << Umin_dt << std::endl;
 
     Eigen::MatrixXd A_cons(this->Nu_ * this->Np_ * 4, this->Nu_ * this->Np_);
-    A_cons << A_I, -A_I, -1*Eigen::MatrixXd::Identity(20, 20), Eigen::MatrixXd::Identity(20, 20);
+    A_cons << A_I, -A_I, 
+              -1*Eigen::MatrixXd::Identity(this->Nu_ * this->Np_, this->Nu_ * this->Np_), 
+              Eigen::MatrixXd::Identity(this->Nu_ * this->Np_, this->Nu_ * this->Np_);
     Eigen::SparseMatrix<double> A_ = A_cons.sparseView();
     
     // std::cout << "________" << std::endl;
@@ -290,40 +297,19 @@ void MPC::setConstrains(){
     // std::cout << "ub = " << std::endl;
     // std::cout << ub << std::endl;
 
-    // std::cout << "________" << std::endl;
-    // std::cout << "H_sparse.rows = " << std::endl;
-    // std::cout << H_sparse.rows() << std::endl;
-    // std::cout << "H_sparse.cols = " << std::endl;
-    // std::cout << H_sparse.cols() << std::endl;
-    
-    // std::cout << "F.rows = " << std::endl;
-    // std::cout << F.rows() << std::endl;
-    // std::cout << "F.cols = " << std::endl;
-    // std::cout << F.cols() << std::endl;
-
-    // std::cout << "A_.rows = " << std::endl;
-    // std::cout << A_.rows() << std::endl;
-    // std::cout << "A_.cols = " << std::endl;
-    // std::cout << A_.cols() << std::endl;
-
-    // std::cout << "lb.rows = " << std::endl;
-    // std::cout << lb.rows() << std::endl;
-    // std::cout << "lb.cols = " << std::endl;
-    // std::cout << lb.cols() << std::endl;
-
-    // std::cout << "B_cons.rows = " << std::endl;
-    // std::cout << B_cons.rows() << std::endl;
-    // std::cout << "B_cons.cols = " << std::endl;
-    // std::cout << B_cons.cols() << std::endl;
     Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> es(H);
     if (es.eigenvalues().minCoeff() < 0) {
         std::cerr << "Hessian matrix is not positive definite!" << std::endl;
     }
 
+    std::cout << "setConstrains OK" << std::endl;
+
     setMats(H_sparse, F, A_, lb, B_cons);
     getRes();
     this->d_v = this->solution_[0];
+    // this->d_v = std::clamp(this->d_v, -0.05, 0.05);
     this->d_delta_f = this->solution_[1];
+    // this->d_delta_f = std::clamp(this->d_delta_f, -0.005, 0.005);
 }
 
 void MPC::setMats(Eigen::SparseMatrix<double> P_, 
@@ -364,4 +350,35 @@ bool MPC::getRes(){
         std::cerr << "QP solving failed!" << std::endl;
         return false;
     }
+}
+
+void MPC::writeControlResult(std::ofstream& outFile){
+    if (outFile.is_open()) {
+        this->headingError = car_.GetYaw() - ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex);
+        calLateralError();
+
+        outFile << car_.GetDeltaF() + this->d_delta_f << " "
+        << this->headingError << " "
+        << this->lateralError << " "
+        << std::endl;
+        std::cout << "File written successfully." << std::endl;
+    } else {
+        std::cout << "Error opening the stanley control record file." << std::endl;
+    }
+}
+
+void MPC::calLateralError(){
+    Eigen::Vector2d egoPose(car_.GetX() + car_.GetL() * cos(car_.GetYaw()), 
+                            car_.GetY() + car_.GetL() * sin(car_.GetYaw()));
+
+    Eigen::Vector2d matchedPathPose(ref_path_.GetPointX(ref_path_.lastNearestPointIndex),
+                                    ref_path_.GetPointY(ref_path_.lastNearestPointIndex));
+    
+    Eigen::Vector2d matchedPathMinusEgo = matchedPathPose - egoPose;
+
+    Eigen::Vector2d egoYawRote90ClockWise(cos(car_.GetYaw() - M_PI_2),
+                                          sin(car_.GetYaw() - M_PI_2));
+
+    double lateralError = matchedPathMinusEgo.dot(egoYawRote90ClockWise);
+    this->lateralError = lateralError;
 }

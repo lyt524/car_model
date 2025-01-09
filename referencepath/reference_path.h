@@ -2,6 +2,15 @@
 
 #include <vector>
 #include <iostream>
+#include <cmath>
+#include <fstream>
+
+#define PATH_INDEX 0
+#define PATH_X 1
+#define PATH_Y 2
+#define PATH_PHI 3
+#define PATH_V 4
+#define PATH_KAPPA 5
 
 class RefPath{
 public:

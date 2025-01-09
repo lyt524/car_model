@@ -41,6 +41,7 @@ void KiCar::PrintState(){
     std::cout << "y = "   << this->y   << std::endl;
     std::cout << "phi = " << this->phi << std::endl;
     std::cout << "v = "  << this->v  << std::endl;
+    std::cout << "delta_f = "  << this->delta_f  << std::endl;
     std::cout << "---------------" << std::endl;
 
     // std::cout << "x = "  << this->x << 
@@ -143,6 +144,8 @@ void KiCar::UpdateState_RK4(double delta_f){
 }
 
 void KiCar::UpdateState_RK4(double delta_f, double a){
+    delta_f = std::clamp(delta_f, -0.44, 0.44);
+    a = std::clamp(a, -0.2, 0.2);
     auto f = [this](double delta_f, double a, double x, double y, double phi, double v){
         double dx = v * cos(phi);
         double dy = v * sin(phi);
