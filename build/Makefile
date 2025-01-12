@@ -117,48 +117,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named mpcTest
+# Target rules for targets named test_osqp
 
 # Build rule for target.
-mpcTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mpcTest
-.PHONY : mpcTest
+test_osqp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_osqp
+.PHONY : test_osqp
 
 # fast build rule for target.
-mpcTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/build
-.PHONY : mpcTest/fast
+test_osqp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/build
+.PHONY : test_osqp/fast
 
-control/mpc_new.o: control/mpc_new.cpp.o
-.PHONY : control/mpc_new.o
+controller/mpc_coupling.o: controller/mpc_coupling.cpp.o
+.PHONY : controller/mpc_coupling.o
 
 # target to build an object file
-control/mpc_new.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_new.cpp.o
-.PHONY : control/mpc_new.cpp.o
+controller/mpc_coupling.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/controller/mpc_coupling.cpp.o
+.PHONY : controller/mpc_coupling.cpp.o
 
-control/mpc_new.i: control/mpc_new.cpp.i
-.PHONY : control/mpc_new.i
+controller/mpc_coupling.i: controller/mpc_coupling.cpp.i
+.PHONY : controller/mpc_coupling.i
 
 # target to preprocess a source file
-control/mpc_new.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_new.cpp.i
-.PHONY : control/mpc_new.cpp.i
+controller/mpc_coupling.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/controller/mpc_coupling.cpp.i
+.PHONY : controller/mpc_coupling.cpp.i
 
-control/mpc_new.s: control/mpc_new.cpp.s
-.PHONY : control/mpc_new.s
+controller/mpc_coupling.s: controller/mpc_coupling.cpp.s
+.PHONY : controller/mpc_coupling.s
 
 # target to generate assembly for a file
-control/mpc_new.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/control/mpc_new.cpp.s
-.PHONY : control/mpc_new.cpp.s
+controller/mpc_coupling.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/controller/mpc_coupling.cpp.s
+.PHONY : controller/mpc_coupling.cpp.s
 
 models/kinematics_model.o: models/kinematics_model.cpp.o
 .PHONY : models/kinematics_model.o
 
 # target to build an object file
 models/kinematics_model.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/models/kinematics_model.cpp.o
 .PHONY : models/kinematics_model.cpp.o
 
 models/kinematics_model.i: models/kinematics_model.cpp.i
@@ -166,7 +166,7 @@ models/kinematics_model.i: models/kinematics_model.cpp.i
 
 # target to preprocess a source file
 models/kinematics_model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/models/kinematics_model.cpp.i
 .PHONY : models/kinematics_model.cpp.i
 
 models/kinematics_model.s: models/kinematics_model.cpp.s
@@ -174,7 +174,7 @@ models/kinematics_model.s: models/kinematics_model.cpp.s
 
 # target to generate assembly for a file
 models/kinematics_model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/models/kinematics_model.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/models/kinematics_model.cpp.s
 .PHONY : models/kinematics_model.cpp.s
 
 referencepath/reference_path.o: referencepath/reference_path.cpp.o
@@ -182,7 +182,7 @@ referencepath/reference_path.o: referencepath/reference_path.cpp.o
 
 # target to build an object file
 referencepath/reference_path.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/referencepath/reference_path.cpp.o
 .PHONY : referencepath/reference_path.cpp.o
 
 referencepath/reference_path.i: referencepath/reference_path.cpp.i
@@ -190,7 +190,7 @@ referencepath/reference_path.i: referencepath/reference_path.cpp.i
 
 # target to preprocess a source file
 referencepath/reference_path.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/referencepath/reference_path.cpp.i
 .PHONY : referencepath/reference_path.cpp.i
 
 referencepath/reference_path.s: referencepath/reference_path.cpp.s
@@ -198,39 +198,39 @@ referencepath/reference_path.s: referencepath/reference_path.cpp.s
 
 # target to generate assembly for a file
 referencepath/reference_path.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/referencepath/reference_path.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/referencepath/reference_path.cpp.s
 .PHONY : referencepath/reference_path.cpp.s
 
-test_new_mpc.o: test_new_mpc.cpp.o
-.PHONY : test_new_mpc.o
+test/test_mpc_couple_0110.o: test/test_mpc_couple_0110.cpp.o
+.PHONY : test/test_mpc_couple_0110.o
 
 # target to build an object file
-test_new_mpc.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_new_mpc.cpp.o
-.PHONY : test_new_mpc.cpp.o
+test/test_mpc_couple_0110.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/test/test_mpc_couple_0110.cpp.o
+.PHONY : test/test_mpc_couple_0110.cpp.o
 
-test_new_mpc.i: test_new_mpc.cpp.i
-.PHONY : test_new_mpc.i
+test/test_mpc_couple_0110.i: test/test_mpc_couple_0110.cpp.i
+.PHONY : test/test_mpc_couple_0110.i
 
 # target to preprocess a source file
-test_new_mpc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_new_mpc.cpp.i
-.PHONY : test_new_mpc.cpp.i
+test/test_mpc_couple_0110.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/test/test_mpc_couple_0110.cpp.i
+.PHONY : test/test_mpc_couple_0110.cpp.i
 
-test_new_mpc.s: test_new_mpc.cpp.s
-.PHONY : test_new_mpc.s
+test/test_mpc_couple_0110.s: test/test_mpc_couple_0110.cpp.s
+.PHONY : test/test_mpc_couple_0110.s
 
 # target to generate assembly for a file
-test_new_mpc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/test_new_mpc.cpp.s
-.PHONY : test_new_mpc.cpp.s
+test/test_mpc_couple_0110.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/test/test_mpc_couple_0110.cpp.s
+.PHONY : test/test_mpc_couple_0110.cpp.s
 
 tools/mathtools.o: tools/mathtools.cpp.o
 .PHONY : tools/mathtools.o
 
 # target to build an object file
 tools/mathtools.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/tools/mathtools.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/tools/mathtools.cpp.o
 .PHONY : tools/mathtools.cpp.o
 
 tools/mathtools.i: tools/mathtools.cpp.i
@@ -238,7 +238,7 @@ tools/mathtools.i: tools/mathtools.cpp.i
 
 # target to preprocess a source file
 tools/mathtools.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/tools/mathtools.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/tools/mathtools.cpp.i
 .PHONY : tools/mathtools.cpp.i
 
 tools/mathtools.s: tools/mathtools.cpp.s
@@ -246,7 +246,7 @@ tools/mathtools.s: tools/mathtools.cpp.s
 
 # target to generate assembly for a file
 tools/mathtools.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/tools/mathtools.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/tools/mathtools.cpp.s
 .PHONY : tools/mathtools.cpp.s
 
 # Help Target
@@ -257,19 +257,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... mpcTest"
-	@echo "... control/mpc_new.o"
-	@echo "... control/mpc_new.i"
-	@echo "... control/mpc_new.s"
+	@echo "... test_osqp"
+	@echo "... controller/mpc_coupling.o"
+	@echo "... controller/mpc_coupling.i"
+	@echo "... controller/mpc_coupling.s"
 	@echo "... models/kinematics_model.o"
 	@echo "... models/kinematics_model.i"
 	@echo "... models/kinematics_model.s"
 	@echo "... referencepath/reference_path.o"
 	@echo "... referencepath/reference_path.i"
 	@echo "... referencepath/reference_path.s"
-	@echo "... test_new_mpc.o"
-	@echo "... test_new_mpc.i"
-	@echo "... test_new_mpc.s"
+	@echo "... test/test_mpc_couple_0110.o"
+	@echo "... test/test_mpc_couple_0110.i"
+	@echo "... test/test_mpc_couple_0110.s"
 	@echo "... tools/mathtools.o"
 	@echo "... tools/mathtools.i"
 	@echo "... tools/mathtools.s"

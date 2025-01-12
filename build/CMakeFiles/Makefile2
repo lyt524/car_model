@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/plusai/car_model/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/mpcTest.dir/all
+all: CMakeFiles/test_osqp.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/mpcTest.dir/clean
+clean: CMakeFiles/test_osqp.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/mpcTest.dir
+# Target rules for target CMakeFiles/test_osqp.dir
 
 # All Build rule for target.
-CMakeFiles/mpcTest.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target mpcTest"
-.PHONY : CMakeFiles/mpcTest.dir/all
+CMakeFiles/test_osqp.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/plusai/car_model/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target test_osqp"
+.PHONY : CMakeFiles/test_osqp.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/mpcTest.dir/rule: cmake_check_build_system
+CMakeFiles/test_osqp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/plusai/car_model/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mpcTest.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_osqp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/plusai/car_model/build/CMakeFiles 0
-.PHONY : CMakeFiles/mpcTest.dir/rule
+.PHONY : CMakeFiles/test_osqp.dir/rule
 
 # Convenience name for target.
-mpcTest: CMakeFiles/mpcTest.dir/rule
-.PHONY : mpcTest
+test_osqp: CMakeFiles/test_osqp.dir/rule
+.PHONY : test_osqp
 
 # clean rule for target.
-CMakeFiles/mpcTest.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mpcTest.dir/build.make CMakeFiles/mpcTest.dir/clean
-.PHONY : CMakeFiles/mpcTest.dir/clean
+CMakeFiles/test_osqp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_osqp.dir/build.make CMakeFiles/test_osqp.dir/clean
+.PHONY : CMakeFiles/test_osqp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

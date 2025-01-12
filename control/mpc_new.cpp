@@ -46,14 +46,14 @@ MPC::MPC(KiCar& car,
 
 // Do both linearization and discretization at ego pos
 void MPC::setBicycleModel(){
-    this->A1 << 1, 0, -car_.GetV() * this->dt * sin(car_.GetYaw()),
-                0, 1, car_.GetV() * this->dt * cos(car_.GetYaw()),
+    this->A1 << 1, 0, -car_.getV() * this->dt * sin(car_.getYaw()),
+                0, 1, car_.getV() * this->dt * cos(car_.getYaw()),
                 0, 0, 1;
 
-    this->B1 << this->dt * cos(car_.GetYaw()), 0,
-                this->dt * sin(car_.GetYaw()), 0,
-                tan(car_.GetDeltaF()) * this->dt / car_.GetL(), 
-                car_.GetV()* this->dt / car_.GetL() / pow(cos(car_.GetDeltaF()), 2);
+    this->B1 << this->dt * cos(car_.getYaw()), 0,
+                this->dt * sin(car_.getYaw()), 0,
+                tan(car_.getDeltaF()) * this->dt / car_.getL(), 
+                car_.getV()* this->dt / car_.getL() / pow(cos(car_.getDeltaF()), 2);
 
     // this->A1 << 1, 0, -1 * this->v_ref_ * this->dt * sin(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)),
     //             0, 1, this->v_ref_ * this->dt * cos(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)),
@@ -61,8 +61,8 @@ void MPC::setBicycleModel(){
 
     // this->B1 << this->dt * cos(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)), 0,
     //             this->dt * sin(this->ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex)), 0,
-    //             tan(0.0) * this->dt / car_.GetL(), 
-    //             this->v_ref_* this->dt / car_.GetL() / pow(cos(0.0), 2);
+    //             tan(0.0) * this->dt / car_.getL(), 
+    //             this->v_ref_* this->dt / car_.getL() / pow(cos(0.0), 2);
 
     std::cout << "setBicycleModel OK" << std::endl;
     // std::cout << "________" << std::endl;
@@ -74,7 +74,7 @@ void MPC::setBicycleModel(){
 
 void MPC::FindRefPos(){
     // egoPose based on rear axle
-    Eigen::Vector2d egoPose(car_.GetX(), car_.GetY());
+    Eigen::Vector2d egoPose(car_.getX(), car_.getY());
     double minDis = std::numeric_limits<double>::infinity();
 
     int startIndex = ref_path_.lastNearestPointIndex;
@@ -88,7 +88,7 @@ void MPC::FindRefPos(){
     int continueFindCnt = continueFindCntNum;
 
     for(int i = startIndex; i < ref_path_.point_num; i++){
-        Eigen::Vector2d pathPose(ref_path_.GetPointX(i), ref_path_.GetPointY(i));
+        Eigen::Vector2d pathPose(ref_path_.getPointX(i), ref_path_.GetPointY(i));
         double curDis = (pathPose - egoPose).norm();
         if(curDis < minDis){
             foundIndex = i;
@@ -109,13 +109,13 @@ void MPC::FindRefPos(){
 }
 
 void MPC::setKesi(){
-    double x0 = car_.GetX();
-    double y0 = car_.GetY();
-    double yaw0 = car_.GetYaw();
-    double v0 = car_.GetV();
-    double delta_f0 = car_.GetDeltaF();
+    double x0 = car_.getX();
+    double y0 = car_.getY();
+    double yaw0 = car_.getYaw();
+    double v0 = car_.getV();
+    double delta_f0 = car_.getDeltaF();
 
-    double x_ref = ref_path_.GetPointX(ref_path_.lastNearestPointIndex);
+    double x_ref = ref_path_.getPointX(ref_path_.lastNearestPointIndex);
     double y_ref = ref_path_.GetPointY(ref_path_.lastNearestPointIndex);
     double yaw_ref = ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex);
     double v_ref = this->v_ref_;
@@ -240,8 +240,8 @@ void MPC::setConstrains(){
     Eigen::VectorXd U(this->Nu_);
     double v_ref = this->v_ref_;
     double delta_f_ref = 0.0;
-    double dv = car_.GetV() - v_ref;
-    double d_deltaf = car_.GetDeltaF() - delta_f_ref;
+    double dv = car_.getV() - v_ref;
+    double d_deltaf = car_.getDeltaF() - delta_f_ref;
     U << dv, d_deltaf;
     Eigen::VectorXd Ut = Eigen::kroneckerProduct(Eigen::VectorXd::Ones(this->Np_), U);
 
@@ -354,10 +354,10 @@ bool MPC::getRes(){
 
 void MPC::writeControlResult(std::ofstream& outFile){
     if (outFile.is_open()) {
-        this->headingError = car_.GetYaw() - ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex);
+        this->headingError = car_.getYaw() - ref_path_.GetPointPhi(ref_path_.lastNearestPointIndex);
         calLateralError();
 
-        outFile << car_.GetDeltaF() + this->d_delta_f << " "
+        outFile << car_.getDeltaF() + this->d_delta_f << " "
         << this->headingError << " "
         << this->lateralError << " "
         << std::endl;
@@ -368,16 +368,16 @@ void MPC::writeControlResult(std::ofstream& outFile){
 }
 
 void MPC::calLateralError(){
-    Eigen::Vector2d egoPose(car_.GetX() + car_.GetL() * cos(car_.GetYaw()), 
-                            car_.GetY() + car_.GetL() * sin(car_.GetYaw()));
+    Eigen::Vector2d egoPose(car_.getX() + car_.getL() * cos(car_.getYaw()), 
+                            car_.getY() + car_.getL() * sin(car_.getYaw()));
 
-    Eigen::Vector2d matchedPathPose(ref_path_.GetPointX(ref_path_.lastNearestPointIndex),
+    Eigen::Vector2d matchedPathPose(ref_path_.getPointX(ref_path_.lastNearestPointIndex),
                                     ref_path_.GetPointY(ref_path_.lastNearestPointIndex));
     
     Eigen::Vector2d matchedPathMinusEgo = matchedPathPose - egoPose;
 
-    Eigen::Vector2d egoYawRote90ClockWise(cos(car_.GetYaw() - M_PI_2),
-                                          sin(car_.GetYaw() - M_PI_2));
+    Eigen::Vector2d egoYawRote90ClockWise(cos(car_.getYaw() - M_PI_2),
+                                          sin(car_.getYaw() - M_PI_2));
 
     double lateralError = matchedPathMinusEgo.dot(egoYawRote90ClockWise);
     this->lateralError = lateralError;

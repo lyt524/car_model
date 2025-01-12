@@ -5,7 +5,7 @@ RefPath::RefPath(int point_num, int row_num){
     ref_path.resize(row_num, std::vector<double>(this->point_num, 0.0));
 }
 
-void RefPath::GetPoint(int index, double& x, double& y, double& phi){
+void RefPath::getPoint(int index, double& x, double& y, double& phi){
     if (index >= 0 && index < ref_path[0].size()) {
         x = ref_path[PATH_X][index];
         y = ref_path[PATH_Y][index];
@@ -16,7 +16,7 @@ void RefPath::GetPoint(int index, double& x, double& y, double& phi){
     }
 }
 
-double RefPath::GetPointX(int index){
+double RefPath::getPointX(int index){
     if (index >= 0 && index < ref_path[0].size()) {
         return ref_path[PATH_X][index];
     }
@@ -26,7 +26,7 @@ double RefPath::GetPointX(int index){
     }
 }
 
-double RefPath::GetPointY(int index){
+double RefPath::getPointY(int index){
     if (index >= 0 && index < ref_path[0].size()) {
         return ref_path[PATH_Y][index];
     }
@@ -36,7 +36,7 @@ double RefPath::GetPointY(int index){
     }
 }
 
-double RefPath::GetPointPhi(int index){
+double RefPath::getPointPhi(int index){
     if (index >= 0 && index < ref_path[0].size()) {
         return ref_path[PATH_PHI][index];
     }
@@ -46,7 +46,7 @@ double RefPath::GetPointPhi(int index){
     }
 }
 
-double RefPath::GetPointV(int index){
+double RefPath::getPointV(int index){
     if (index >= 0 && index < ref_path[0].size()) {
         return ref_path[PATH_V][index];
     }
@@ -56,7 +56,7 @@ double RefPath::GetPointV(int index){
     }
 }
 
-void RefPath::ShowPath(){
+void RefPath::showPath(){
     for (int i = 0; i < this->point_num; i++) {
         std::cout << "Point " << ref_path[PATH_INDEX][i] 
                 << ": x = " << ref_path[PATH_X][i]
@@ -67,7 +67,7 @@ void RefPath::ShowPath(){
     }
 }
 
-void RefPath::WritePath(std::ofstream& outFile){
+void RefPath::writePath(std::ofstream& outFile){
     if (outFile.is_open()) {
         for(int i = 0; i < this->ref_path[0].size(); i++){
             outFile << ref_path[PATH_X][i] << " "  // x
@@ -87,7 +87,7 @@ SineInfo::SineInfo(double amp, double freq){
     this->frequency = freq;
 }
 
-void GenerateSinewavePath(int path_length, RefPath& _ref_path, SineInfo& _sine_info){
+void generateSinewavePath(int path_length, RefPath& _ref_path, SineInfo& _sine_info){
     int point_num = _ref_path.ref_path[0].size();
     for(int i = 0; i < point_num; i++){
         // fill index

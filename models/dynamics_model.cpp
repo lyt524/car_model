@@ -11,7 +11,7 @@ DyCar::DyCar(float TS, float L, float MASS, float CF, float CR, float IZ, float 
 
 
 
-void DyCar::UpdateState_ForwardEuler(double delta_f, double a){
+void DyCar::updateState_ForwardEuler(double delta_f, double a){
     auto f = [this](double delta_f, double x, double y, double phi){
         double d_vy = (this->CF + this->CR) / (this->MASS * this->vx) * this->d_vy +
                       ((this->LF * this->CF - this->LR * this->CR) / (this->MASS * this->vx) - this->vx) * this->d_phi +

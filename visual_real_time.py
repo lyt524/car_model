@@ -1,8 +1,6 @@
 from build import CppModule
-from drawtrailer import draw_trailer
+from tools.drawtrailer import draw_trailer
 
-import math
-import numpy as np
 import matplotlib.pyplot as plt
 
 def LogState(car_x_list, car_y_list, car_phi_list,

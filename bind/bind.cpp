@@ -12,29 +12,29 @@ PYBIND11_MODULE(CppModule, m) {
         .def(py::init<float, float, double, double, double, double, double>(),
              py::arg("TS"), py::arg("L"), py::arg("x"), py::arg("y"), py::arg("phi"),
              py::arg("delta_f"), py::arg("v"))
-        .def_property_readonly("GetTs", &KiCar::GetTs)
-        .def_property_readonly("GetL", &KiCar::GetL)
-        .def_property_readonly("GetX", &KiCar::GetX)
-        .def_property_readonly("GetY", &KiCar::GetY)
-        .def_property_readonly("GetYaw", &KiCar::GetYaw)
-        .def_property_readonly("GetDeltaF", &KiCar::GetDeltaF)
-        .def_property_readonly("GetV", &KiCar::GetV)
+        .def_property_readonly("getTs", &KiCar::getTs)
+        .def_property_readonly("getL", &KiCar::getL)
+        .def_property_readonly("getX", &KiCar::getX)
+        .def_property_readonly("getY", &KiCar::getY)
+        .def_property_readonly("getYaw", &KiCar::getYaw)
+        .def_property_readonly("getDeltaF", &KiCar::getDeltaF)
+        .def_property_readonly("getV", &KiCar::getV)
         .def("GetPosition", &KiCar::GetPosition)
-        .def("UpdateState_ForwardEuler", (void (KiCar::*)(double)) &KiCar::UpdateState_ForwardEuler)
-        .def("UpdateState_ForwardEuler", (void (KiCar::*)(double, double)) &KiCar::UpdateState_ForwardEuler)
-        .def("UpdateState_BackwardEuler", (void (KiCar::*)(double)) &KiCar::UpdateState_BackwardEuler)
-        .def("UpdateState_BackwardEuler", (void (KiCar::*)(double, double)) &KiCar::UpdateState_BackwardEuler)
-        .def("UpdateState_RK4", (void (KiCar::*)(double)) &KiCar::UpdateState_RK4)
-        .def("UpdateState_RK4", (void (KiCar::*)(double, double)) &KiCar::UpdateState_RK4)
-        .def("PrintState", &KiCar::PrintState);
+        .def("updateState_ForwardEuler", (void (KiCar::*)(double)) &KiCar::updateState_ForwardEuler)
+        .def("updateState_ForwardEuler", (void (KiCar::*)(double, double)) &KiCar::updateState_ForwardEuler)
+        .def("updateState_BackwardEuler", (void (KiCar::*)(double)) &KiCar::updateState_BackwardEuler)
+        .def("updateState_BackwardEuler", (void (KiCar::*)(double, double)) &KiCar::updateState_BackwardEuler)
+        .def("updateState_RK4", (void (KiCar::*)(double)) &KiCar::updateState_RK4)
+        .def("updateState_RK4", (void (KiCar::*)(double, double)) &KiCar::updateState_RK4)
+        .def("printState", &KiCar::printState);
     
     py::class_<RefPath>(m, "RefPath")
         .def(py::init<int, int>(), py::arg("point_num"), py::arg("row_num"))
-        .def("GetPoint", &RefPath::GetPoint, py::arg("index"), py::arg("x"), py::arg("y"), py::arg("phi"))
-        .def("GetPointX", &RefPath::GetPointX, py::arg("index"))
-        .def("GetPointY", &RefPath::GetPointY, py::arg("index"))
-        .def("GetPointPhi", &RefPath::GetPointPhi, py::arg("index"))
-        .def("ShowPath", &RefPath::ShowPath)
+        .def("getPoint", &RefPath::getPoint, py::arg("index"), py::arg("x"), py::arg("y"), py::arg("phi"))
+        .def("getPointX", &RefPath::getPointX, py::arg("index"))
+        .def("getPointY", &RefPath::getPointY, py::arg("index"))
+        .def("getPointPhi", &RefPath::getPointPhi, py::arg("index"))
+        .def("showPath", &RefPath::showPath)
         .def_readonly("ref_path", &RefPath::ref_path)
         .def_readonly("point_num", &RefPath::point_num)
         .def_readonly("lastNearestPointIndex", &RefPath::lastNearestPointIndex);
@@ -44,19 +44,19 @@ PYBIND11_MODULE(CppModule, m) {
         .def_readonly("amplitude", &SineInfo::amplitude)
         .def_readonly("frequency", &SineInfo::frequency);
 
-    m.def("GenerateSinewavePath", &GenerateSinewavePath, py::arg("path_length"), py::arg("_ref_path"), py::arg("_sine_info"));
+    m.def("generateSinewavePath", &generateSinewavePath, py::arg("path_length"), py::arg("_ref_path"), py::arg("_sine_info"));
 
     py::class_<Stanley>(m, "Stanley")
         .def(py::init<>())
-        .def("FindNearestIndex", &Stanley::FindNearestIndex, py::arg("ki_car"), py::arg("ref_path"))
-        .def("CalHeadingError", &Stanley::CalHeadingError, py::arg("ki_car"), py::arg("ref_path"))
-        .def("CalLateralError", &Stanley::CalLateralError, py::arg("ki_car"), py::arg("ref_path"))
-        .def("StanleyControl", &Stanley::StanleyControl, py::arg("ki_car"), py::arg("ref_path"))
-        .def_property_readonly("GetLateralError", &Stanley::GetLateralError)
-        .def_property_readonly("GetHeadingError", &Stanley::GetHeadingError)
-        .def_readwrite("stanleyK", &Stanley::stanleyK)
-        .def_readonly("deltaF", &Stanley::deltaF)
-        .def_readonly("headingError", &Stanley::headingError)
-        .def_readonly("lateralError", &Stanley::lateralError);
+        .def("findNearestIndex", &Stanley::findNearestIndex, py::arg("ki_car"), py::arg("ref_path"))
+        .def("calHeadingError", &Stanley::calHeadingError, py::arg("ki_car"), py::arg("ref_path"))
+        .def("calLateralError", &Stanley::calLateralError, py::arg("ki_car"), py::arg("ref_path"))
+        .def("stanleyControl", &Stanley::stanleyControl, py::arg("ki_car"), py::arg("ref_path"))
+        .def_property_readonly("getLateralError", &Stanley::getLateralError)
+        .def_property_readonly("getHeadingError", &Stanley::getHeadingError)
+        .def_readwrite("stanley_K_", &Stanley::stanley_K_)
+        .def_readonly("delta_f_", &Stanley::delta_f_)
+        .def_readonly("heading_error_", &Stanley::heading_error_)
+        .def_readonly("lateral_error_", &Stanley::lateral_error_);
 }
 

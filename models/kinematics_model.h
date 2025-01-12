@@ -15,22 +15,21 @@ public:
     KiCar(float TS, float L);
     KiCar(float TS, float L, double x, double y, double phi, double delta_f, double v);
     ~KiCar();
-    float GetTs();
-    float GetL();
-    double GetX();
-    double GetY();
-    double GetYaw();
-    double GetDeltaF();
-    double GetV();
-    void GetPosition();
-    void UpdateState_ForwardEuler(double delta_f);
-    void UpdateState_ForwardEuler(double delta_f, double a);
-    void UpdateState_BackwardEuler(double delta_f);
-    void UpdateState_BackwardEuler(double delta_f, double a);
-    void UpdateState_RK4(double delta_f);
-    void UpdateState_RK4(double delta_f, double a);
-    void PrintState();
-    void WriteCarState(std::ofstream& outFile);
+    float getTs();
+    float getL();
+    double getX();
+    double getY();
+    double getYaw();
+    double getDeltaF();
+    double getV();
+    void updateState_ForwardEuler(double delta_f);
+    void updateState_ForwardEuler(double delta_f, double a);
+    void updateState_BackwardEuler(double delta_f);
+    void updateState_BackwardEuler(double delta_f, double a);
+    void updateState_RK4(double delta_f);
+    void updateState_RK4(double delta_f, double a);
+    void printState();
+    void writeCarState(std::ofstream& outFile);
 };
 
 

@@ -25,18 +25,16 @@ KiCar::KiCar(float dt,
              delta_f(delta_f), 
              v(v){}
 
-float KiCar::GetTs() { return this->TS; }
-float KiCar::GetL() { return this->L; }
-double KiCar::GetX() { return this->x; }
-double KiCar::GetY() { return this->y; }
-double KiCar::GetYaw() { return this->phi; }
-double KiCar::GetDeltaF() { return this->delta_f; }
-double KiCar::GetV() { return this->v; }
+float KiCar::getTs() { return this->TS; }
+float KiCar::getL() { return this->L; }
+double KiCar::getX() { return this->x; }
+double KiCar::getY() { return this->y; }
+double KiCar::getYaw() { return this->phi; }
+double KiCar::getDeltaF() { return this->delta_f; }
+double KiCar::getV() { return this->v; }
 
-void KiCar::GetPosition(){
-}
 
-void KiCar::PrintState(){
+void KiCar::printState(){
     std::cout << "x = "   << this->x   << std::endl;
     std::cout << "y = "   << this->y   << std::endl;
     std::cout << "phi = " << this->phi << std::endl;
@@ -49,7 +47,7 @@ void KiCar::PrintState(){
     //  "              delta_f = "<< this->delta_f << std::endl;
 }
 
-void KiCar::UpdateState_ForwardEuler(double delta_f){
+void KiCar::updateState_ForwardEuler(double delta_f){
     this->x += this->v * cos(this->phi) * this->TS;
     this->y += this->v * sin(this->phi) * this->TS;
     this->phi += this->v * tan(this->delta_f)  * this->TS / this->L;
@@ -59,7 +57,7 @@ void KiCar::UpdateState_ForwardEuler(double delta_f){
 }
 
 
-void KiCar::UpdateState_ForwardEuler(double delta_f, double a){
+void KiCar::updateState_ForwardEuler(double delta_f, double a){
     this->x += this->v * cos(this->phi) * this->TS;
     this->y += this->v * sin(this->phi) * this->TS;
     this->phi += this->v * tan(this->delta_f) * this->TS / this->L;
@@ -72,7 +70,7 @@ void KiCar::UpdateState_ForwardEuler(double delta_f, double a){
 }
 
 
-void KiCar::UpdateState_BackwardEuler(double delta_f){
+void KiCar::updateState_BackwardEuler(double delta_f){
     this->phi += this->v * tan(this->delta_f) * this->TS / this->L;
     NormalizeAngle(this->phi);
     this->x += this->v * cos(this->phi) * this->TS;
@@ -81,7 +79,7 @@ void KiCar::UpdateState_BackwardEuler(double delta_f){
     this->delta_f = delta_f;
 }
 
-void KiCar::UpdateState_BackwardEuler(double delta_f, double a){
+void KiCar::updateState_BackwardEuler(double delta_f, double a){
     this->a = a;
     this->v += this->a * this->TS;
 
@@ -93,7 +91,7 @@ void KiCar::UpdateState_BackwardEuler(double delta_f, double a){
     this->delta_f = delta_f;
 }
 
-void KiCar::UpdateState_RK4(double delta_f){
+void KiCar::updateState_RK4(double delta_f){
     auto f = [this](double delta_f, double x, double y, double phi){
         double dx = this->v * cos(phi);
         double dy = this->v * sin(phi);
@@ -143,7 +141,7 @@ void KiCar::UpdateState_RK4(double delta_f){
     this->delta_f = delta_f;
 }
 
-void KiCar::UpdateState_RK4(double delta_f, double a){
+void KiCar::updateState_RK4(double delta_f, double a){
     delta_f = std::clamp(delta_f, -0.44, 0.44);
     a = std::clamp(a, -0.2, 0.2);
     auto f = [this](double delta_f, double a, double x, double y, double phi, double v){
@@ -205,12 +203,12 @@ void KiCar::UpdateState_RK4(double delta_f, double a){
     this->delta_f = delta_f;
 }
 
-void KiCar::WriteCarState(std::ofstream& outFile){
+void KiCar::writeCarState(std::ofstream& outFile){
     if (outFile.is_open()) {
-        outFile << this->GetX() << " "
-        << this->GetY() << " "
-        << this->GetYaw() << " "
-        << this->GetV() << " "
+        outFile << this->getX() << " "
+        << this->getY() << " "
+        << this->getYaw() << " "
+        << this->getV() << " "
         << std::endl;
         
         std::cout << "CarState record written successfully." << std::endl;

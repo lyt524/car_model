@@ -38,13 +38,25 @@ include_directories(/usr/include/eigen3)
 # control/mpc_coupling.cpp
 # )
 
-add_executable(mpcTest 
-test_new_mpc.cpp
+# add_executable(mpcTest 
+# test_new_mpc.cpp
+# models/kinematics_model.cpp
+# tools/mathtools.cpp
+# referencepath/reference_path.cpp
+# control/mpc_new.cpp
+# )
+
+add_executable(test_osqp 
+test/test_mpc_couple_0110.cpp
+controller/mpc_coupling.cpp
 models/kinematics_model.cpp
 tools/mathtools.cpp
 referencepath/reference_path.cpp
-control/mpc_new.cpp
 )
+
+# add_executable(test_osqp 
+# test0110.cpp
+# )
 
 # add_subdirectory(extern/pybind11)
 # pybind11_add_module(CppModule
@@ -55,4 +67,6 @@ control/mpc_new.cpp
 # tools/mathtools.cpp
 # )
 
-target_link_libraries(mpcTest Eigen3::Eigen OsqpEigen::OsqpEigen)
+# target_link_libraries(mpcTest Eigen3::Eigen OsqpEigen::OsqpEigen)
+
+target_link_libraries(test_osqp Eigen3::Eigen OsqpEigen::OsqpEigen)
